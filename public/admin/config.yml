@@ -9,13 +9,11 @@ backend:
   base_url: https://pata-decap-oauth.pakrumina.workers.dev
   auth_endpoint: auth
 
-media_library:
-  name: uploadcare
-  config:
-    publicKey: demopublickey
+media_folder: "public/uploads"
+public_folder: "/uploads"
 
-media_folder: "public/media"
-public_folder: "https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev" # TODO Replace with actual URL once going public
+display_url: https://YOUR_DOMAIN.com
+logo_url: https://YOUR_DOMAIN.com/favicon.svg
 
 collections:
   - name: "projects"
@@ -23,11 +21,33 @@ collections:
     folder: "src/content/projects"
     create: true
     slug: "{{slug}}"
+    identifier_field: "title"
+    sortable_fields: ["date", "title"]
+    default_sort: { field: "date", dir: "Descending" }
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Client/Category", name: "category", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Video URL", name: "videoUrl", widget: "string", hint: "Direct link to .mp4 file in Cloudflare R2" }
-      - { label: "Thumbnail Image", name: "thumbnail", widget: "string", required: false }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Body Content", name: "body", widget: "markdown", required: false }
+      - { label: "Virsraksts", name: "title", widget: "string" }
+      - { label: "Apraksts", name: "description", widget: "string" }
+      - { label: "Kategorija", name: "category", widget: "string", hint: "piemēram, video, zīmējums utml." }
+      - { 
+          label: "Statiska bilde", 
+          name: "thumbnail", 
+          widget: "string", 
+          required: true,
+          hint: "Bilde, ko rādīt, pirms uzbrauc ar peli (pilna adrese no R2, piemēram, https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/nice.PNG)" 
+        }
+      - { 
+          label: "Video uzbraucot ar peli", 
+          name: "hoverVideoUrl", 
+          widget: "string", 
+          required: false, 
+          hint: "Video uzbraucot ar peli (pilna adrese no R2, piemēram, https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/nice.PNG)" 
+        }
+      - { 
+          label: "YouTube ID", 
+          name: "youtubeId", 
+          widget: "string", 
+          required: false, 
+          hint: "Youtube video 11 simbolu ID (piemēram, dQw4w9WgXcQ)" 
+        }
+      - { label: "Gads", name: "year", widget: "string" }
+      - { label: "Saturs", name: "body", widget: "markdown" }

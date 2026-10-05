@@ -125,11 +125,11 @@ export const BLOG_READ_MORE_TITLE = {
 
 export const BLOG_ALL_POSTS = { href: '/blog', label: 'All Posts' } as const;
 
-export const EXPLORE_NEXT_KICKER = 'Next project';
+export const EXPLORE_NEXT_KICKER = 'Nākamais darbs';
 
 export const EXPLORE_NEXT_TITLE = {
-	lead: 'Explore',
-	main: 'Next',
+	lead: 'Iepazīsti',
+	main: 'Nākamais',
 } as const;
 
 export const SERVICES_PAGE_TITLE = {
@@ -150,35 +150,6 @@ export const CTA_TITLE = {
 } as const;
 
 export const CTA_LINK = { href: '/contact', label: 'Get in touch' } as const;
-
-export const WORKS_INDEX = '(2023/26)';
-
-export const WORKS_ITEMS = [
-	{
-		name: 'Pulse',
-		service: 'Spatial Design, 2026',
-		image: '/works/01.png',
-		href: '/projects/project-01',
-	},
-	{
-		name: 'Auralis',
-		service: 'Product Design, 2025',
-		image: '/works/04.png',
-		href: '/projects/project-04',
-	},
-	{
-		name: 'Aperture',
-		service: 'Photography, 2024',
-		image: '/works/02.png',
-		href: '/projects/project-02',
-	},
-	{
-		name: 'Atelier',
-		service: 'Brand Campaign, 2023',
-		image: '/works/03.png',
-		href: '/projects/project-03',
-	},
-] as const;
 
 export const PARTNERS_LABEL = 'Global Creative Partners';
 

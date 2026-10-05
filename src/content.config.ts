@@ -15,14 +15,11 @@ const projects = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
-		order: z.number(),
-		hero: z.string(),
-		service: z.string(),
-		industry: z.string(),
+		category: z.string(),
+		thumbnail: z.string().optional(),
+		hoverVideoUrl: z.string().optional(),
+		youtubeId: z.string().optional(),
 		year: z.string(),
-		workflow: z.string(),
-		goal: projectBlock,
-		results: projectBlock,
 	}),
 });
 

@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
@@ -7,12 +8,11 @@ interface Props {
 
 const { project } = Astro.props;
 const { data } = project;
+const { Content } = await render(project);
 
 const meta = [
-	{ label: 'Service', value: data.service },
-	{ label: 'Industry', value: data.industry },
-	{ label: 'Year', value: data.year },
-	{ label: 'Workflow', value: data.workflow },
+	{ label: 'Kategorija', value: data.category },
+	{ label: 'Gads', value: data.year },
 ];
 ---
 
@@ -35,46 +35,12 @@ const meta = [
 		</ul>
 
 		<figure class="case__hero">
-			<img class="case__image" src={data.hero} alt={data.title} />
+			<img class="case__image" src={data.thumbnail} alt={data.title} />
 		</figure>
 
 		<section class="case__split" aria-labelledby="case-goal-title">
 			<div class="case__copy">
-				<h2 class="case__heading" id="case-goal-title">{data.goal.title}</h2>
-				<p class="case__text">{data.goal.lead}</p>
-				<ul class="case__list">
-					{data.goal.points.map((point) => <li>{point}</li>)}
-				</ul>
-				<p class="case__text">{data.goal.close}</p>
-			</div>
-			<div class="case__gallery">
-				{
-					data.goal.images.map((src) => (
-						<figure class="case__shot">
-							<img class="case__image" src={src} alt="" />
-						</figure>
-					))
-				}
-			</div>
-		</section>
-
-		<section class="case__split case__split--reverse" aria-labelledby="case-results-title">
-			<div class="case__copy">
-				<h2 class="case__heading" id="case-results-title">{data.results.title}</h2>
-				<p class="case__text">{data.results.lead}</p>
-				<ol class="case__list case__list--numbered">
-					{data.results.points.map((point) => <li>{point}</li>)}
-				</ol>
-				<p class="case__text">{data.results.close}</p>
-			</div>
-			<div class="case__gallery">
-				{
-					data.results.images.map((src) => (
-						<figure class="case__shot">
-							<img class="case__image" src={src} alt="" />
-						</figure>
-					))
-				}
+				<Content />
 			</div>
 		</section>
 	</div>

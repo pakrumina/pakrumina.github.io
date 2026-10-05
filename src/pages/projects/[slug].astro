@@ -2,7 +2,6 @@
 import ProjectCase from '../../components/ProjectCase.astro';
 import ProjectNextSection from '../../components/ProjectNextSection.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { WORKS_ITEMS } from '../../consts';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -14,12 +13,13 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const projectList = await getCollection('projects');
 const currentHref = `/projects/${project.id}`;
-const currentIndex = WORKS_ITEMS.findIndex((item) => item.href === currentHref);
-const nextWork = WORKS_ITEMS[(currentIndex + 1) % WORKS_ITEMS.length];
+const currentIndex = projectList.findIndex((item) => project.id === item.id);
+const nextProject = projectList[(currentIndex + 1) % projectList.length];
 ---
 
 <BaseLayout title={project.data.title} description={project.data.description}>
 	<ProjectCase project={project} />
-	<ProjectNextSection name={nextWork.name} href={nextWork.href} />
+	<ProjectNextSection name={nextProject.data.title} href=`/projects/${nextProject.id}` />
 </BaseLayout>
