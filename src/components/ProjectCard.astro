@@ -1,6 +1,6 @@
 ---
 const { project } = Astro.props;
-const { title, description, category, titleImage, hoverVideoUrl } = project.data;
+const { title, description, thumbnail, titleImage, hoverVideoUrl } = project.data;
 ---
 
 <li class="works__item">
@@ -9,8 +9,28 @@ const { title, description, category, titleImage, hoverVideoUrl } = project.data
     class="works__card"
     aria-label={`${project.title}`}
     >
-        <div class="works__media">
-            <img class="works__image" src={titleImage} alt="" data-works-image />
+        <div class="project-card works__media">
+			{thumbnail && (
+				<img 
+					src={thumbnail} 
+					alt={title} 
+					loading="lazy"
+					class="card-image"
+				/>
+			)}
+
+			{hoverVideoUrl && (
+				<video 
+					src={hoverVideoUrl} 
+					muted 
+					loop 
+					playsinline
+					preload="metadata"
+					onmouseenter="this.play()" 
+					onmouseleave="this.pause(); this.currentTime = 0;"
+					class="card-video"
+				></video>
+			)}
         </div>
         <div class="works__meta">
             <p class="works__label">
@@ -51,6 +71,91 @@ const { title, description, category, titleImage, hoverVideoUrl } = project.data
 </li>
 
 <style>
+	.project-card {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		text-decoration: none;
+		color: inherit;
+		border-radius: 12px;
+		overflow: hidden;
+		background-color: #ffffff;
+		border: 1px solid #e4e4e7;
+		transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+	}
+
+	.project-card:hover {
+		transform: translateY(-2px);
+		border-color: #d4d4d8;
+		box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+	}
+
+	.card-media {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		background-color: #f4f4f5;
+		overflow: hidden;
+	}
+
+	.card-image,
+	.card-video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.card-image {
+		z-index: 3;
+		transition: opacity 0.3s ease;
+		pointer-events: none;
+	}
+
+	.project-card:hover .card-image {
+		opacity: 0 !important;;
+	}
+
+
+	.card-video {
+		z-index: 2;
+	}
+
+	/* Card Footer Content */
+	.card-info {
+		padding: 1.25rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		background-color: #ffffff;
+		border-top: 1px solid #f4f4f5;
+	}
+
+	.card-text {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.card-category {
+		font-size: 0.75rem;
+		font-family: monospace;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: #71717a;
+	}
+
+	.card-title {
+		margin: 0;
+		font-size: 1.125rem;
+		font-weight: 700;
+		color: #09090b;
+		line-height: 1.3;
+	}
+
 	.works__item {
 		min-width: 0;
 	}
@@ -70,7 +175,7 @@ const { title, description, category, titleImage, hoverVideoUrl } = project.data
 
 	.works__card:hover,
 	.works__card:focus-visible {
-		background-color: rgb(0 0 0 / 0.075);
+		background-color: rgb(0 0 0 / 0.25);
 	}
 
 	.works__media {
