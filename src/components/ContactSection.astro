@@ -9,9 +9,6 @@ import {
 	CONTACT_FORM_HIDDEN,
 	CONTACT_FORM_SUBMIT,
 	CONTACT_FORM_SUCCESS,
-	CONTACT_KICKER,
-	CONTACT_PHONE,
-	CONTACT_PHONE_HREF,
 	CONTACT_TITLE,
 	SOCIAL_LINKS_LEFT,
 	SOCIAL_LINKS_RIGHT,
@@ -33,10 +30,6 @@ function socialClass(link: any) {
 <section class="contact" id="contact" aria-label="Contact">
 	<div class="contact__inner">
 		<div class="contact__copy">
-			<p class="contact__kicker">
-				<span class="contact__kicker-mark" aria-hidden="true">✦</span>
-				{CONTACT_KICKER}
-			</p>
 			<h1 class="contact__title">
 				<span class="contact__title-lead" data-contact-reveal>{CONTACT_TITLE.lead}</span>
 				<span class="contact__title-main" data-contact-reveal>{CONTACT_TITLE.main}</span>
@@ -73,41 +66,6 @@ function socialClass(link: any) {
 						<span class="contact__info-mask" aria-hidden="true">
 							{
 								charsOf(CONTACT_EMAIL).map((char) => (
-									<span class="contact__info-col">
-										<span class="contact__info-track">
-											<span class="contact__info-char">{char}</span>
-											<span class="contact__info-char">{char}</span>
-										</span>
-									</span>
-								))
-							}
-						</span>
-						<span class="contact__info-arrow" aria-hidden="true">↗</span>
-						<span class="contact__info-underline" aria-hidden="true">
-							<span class="contact__info-underline-fill"></span>
-						</span>
-					</span>
-				</a>
-				<a
-					class="contact__info"
-					href={CONTACT_PHONE_HREF}
-					data-contact-info-hover
-					aria-label={`Phone ${CONTACT_PHONE}`}
-				>
-					<span class="contact__info-icon" aria-hidden="true">
-						<svg viewBox="0 0 24 24" fill="none">
-							<path
-								d="M8.2 4.75h2.15l1.05 3.2-1.35 1.15a11.5 11.5 0 0 0 5.15 5.15l1.15-1.35 3.2 1.05v2.15c0 .9-.7 1.7-1.6 1.85-1.85.3-5.55-.15-8.85-3.45-3.3-3.3-3.75-7-3.45-8.85.15-.9.95-1.6 1.85-1.6Z"
-								stroke="currentColor"
-								stroke-width="1.4"
-								stroke-linejoin="round"
-							></path>
-						</svg>
-					</span>
-					<span class="contact__info-body">
-						<span class="contact__info-mask" aria-hidden="true">
-							{
-								charsOf(CONTACT_PHONE).map((char) => (
 									<span class="contact__info-col">
 										<span class="contact__info-track">
 											<span class="contact__info-char">{char}</span>
@@ -180,7 +138,7 @@ function socialClass(link: any) {
 			}
 
 			<label class="contact__field" for="message">
-				<span class="contact__label">Message</span>
+				<span class="contact__label">Ziņa</span>
 				<textarea
 					class="contact__input contact__input--area"
 					id="message"
@@ -246,25 +204,6 @@ function socialClass(link: any) {
 		flex-direction: column;
 		align-items: flex-start;
 		min-width: 0;
-	}
-
-	.contact__kicker {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.45rem;
-		margin: 0;
-		color: var(--color-fg);
-		font-family: var(--font-sans);
-		font-weight: 600;
-		font-size: 0.75rem;
-		line-height: 1;
-		letter-spacing: 0.08rem;
-		text-transform: uppercase;
-	}
-
-	.contact__kicker-mark {
-		font-size: 0.7rem;
-		line-height: 1;
 	}
 
 	.contact__title {

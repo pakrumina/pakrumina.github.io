@@ -3,7 +3,6 @@ export const SITE_TITLE = 'Noname';
 export const SITE_DESCRIPTION = 'Patrīcijas Krūmiņas portfolio un blogs';
 export const CONTACT_EMAIL = 'patricija@noname.lv';
 
-export const CONTACT_KICKER = 'Sazinies ar mani';
 export const CONTACT_TITLE = {
 	lead: 'Uzraksti',
 	main: 'Man',
@@ -28,11 +27,11 @@ export const CONTACT_FORM_ACTION = '';
 export const CONTACT_FORM_HIDDEN: ReadonlyArray<{ name: string; value: string }> = [];
 
 export const CONTACT_FIELDS = [
-	{ id: 'name', name: 'name', label: 'Name', type: 'text', autocomplete: 'name', required: true },
+	{ id: 'name', name: 'name', label: 'Vārds', type: 'text', autocomplete: 'name', required: true },
 	{
 		id: 'email',
 		name: 'email',
-		label: 'Email Address',
+		label: 'E-pasta adrese',
 		type: 'email',
 		autocomplete: 'email',
 		required: true,
@@ -40,7 +39,7 @@ export const CONTACT_FIELDS = [
 	{
 		id: 'subject',
 		name: 'subject',
-		label: 'Subject',
+		label: 'Tēma',
 		type: 'text',
 		autocomplete: 'off',
 		required: true,
@@ -142,7 +141,7 @@ export const FOOTER_CREDIT = 'Visas tiesības aizsargātas';
 export const FOOTER_META_LINKS = [{ href: '/licenses', label: 'Licenses' }] as const;
 
 export const LICENSES_KICKER = 'Legal information';
-export const LICENSES_TITLE = 'Licenses';
+export const LICENSES_TITLE = 'Licences';
 export const LICENSES_DESCRIPTION =
 	'Credits and licenses for the images, typeface, and icons used in the Craift template.';
 export const LICENSES_INTRO =
@@ -150,26 +149,13 @@ export const LICENSES_INTRO =
 
 export const LICENSES_SECTIONS = [
 	{
-		title: 'Images',
-		copy: 'Some image assets in this template come from Lummi AI. Others were created with Google Flow. Please check each provider’s current terms for personal and commercial use.',
-		links: [
-			{ href: 'https://www.lummi.ai/license', label: 'Lummi AI' },
-			{ href: 'https://labs.google/fx/tools/flow', label: 'Google Flow' },
-		],
-	},
-	{
-		title: 'Fonts',
-		copy: 'The typeface used throughout the template creates its editorial visual language. Please review the license for Creato Display before redistributing it.',
-		links: [{ href: 'https://befonts.com/creato-font-family.html', label: 'Creato Display' }],
-	},
-	{
 		title: 'Icons',
 		copy: 'The interface icons featured in this template come from Remix Icon. Refer to its license for usage and attribution details.',
 		links: [{ href: 'https://remixicon.com/license', label: 'Remix Icon' }],
 	},
 ] as const;
 
-export const FOOTER_BACK_TO_TOP = 'Back to Top';
+export const FOOTER_BACK_TO_TOP = 'Atpakaļ uz augšu';
 
 export const SOCIAL_LINKS_LEFT = [
 	{ href: 'https://instagram.com/pakrumina', label: 'Instagram Patrīcija Krūmiņa', id: 'instagram', class: 'social-black' },
