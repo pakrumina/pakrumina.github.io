@@ -69,6 +69,19 @@ export const HERO_TRAIL_IMAGES = [
 ] as const;
 
 
+export const CONTACT_RING_IMAGES = [
+	'/contact-ring/ķēmi_tēli_800x800px-01.png',
+	'/contact-ring/ķēmi_tēli_800x800px-02.png',
+	'/contact-ring/ķēmi_tēli_800x800px-03.png',
+	'/contact-ring/ķēmi_tēli_800x800px-04.png',
+	'/contact-ring/ķēmi_tēli_800x800px-05.png',
+	'/contact-ring/ķēmi_tēli_800x800px-06.png',
+	'/contact-ring/ķēmi_tēli_800x800px-07.png',
+	'/contact-ring/ķēmi_tēli_800x800px-08.png',
+	'/contact-ring/ķēmi_tēli_800x800px-09.png',
+	'/contact-ring/ķēmi_tēli_800x800px-10.png',
+] as const;
+
 export const PROJECTS_TITLE = {
 	lead: 'Mani',
 	main: 'Darbi',
@@ -134,11 +147,12 @@ export const FOOTER_HEADLINE = {
 	muted: 'kaut ko lielisku.',
 } as const;
 
-export const FOOTER_BRAND = 'Patrīcija Krūmiņa, Noname';
+export const FOOTER_LARGE_TEXT = "Varbūt kurmja uzdevums ir mūžīgi rakt!"
+export const FOOTER_BRAND = 'Patrīcija Krūmiņa, SIA Noname';
 
 export const FOOTER_CREDIT = 'Visas tiesības aizsargātas';
 
-export const FOOTER_META_LINKS = [{ href: '/licenses', label: 'Licenses' }] as const;
+export const FOOTER_META_LINKS = [{ href: '/licenses', label: 'Licences' }] as const;
 
 export const LICENSES_KICKER = 'Legal information';
 export const LICENSES_TITLE = 'Licences';

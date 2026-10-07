@@ -1,5 +1,5 @@
 ---
-import { CTA_LINK, CTA_TITLE, HERO_TRAIL_IMAGES } from '../consts';
+import { CTA_LINK, CTA_TITLE, CONTACT_RING_IMAGES } from '../consts';
 
 function charsOf(label: string) {
 	return [...label].map((char) => (char === ' ' ? '\u00A0' : char));
@@ -10,7 +10,7 @@ function charsOf(label: string) {
 	<div class="cta__stage" data-cta-stage>
 		<div class="cta__orbit" aria-hidden="true">
 			{
-				HERO_TRAIL_IMAGES.map((src) => (
+				CONTACT_RING_IMAGES.map((src) => (
 					<figure class="cta__card" data-cta-card>
 						<img class="cta__image" src={src} alt="" />
 					</figure>
@@ -77,7 +77,7 @@ function charsOf(label: string) {
 		margin: 0;
 		overflow: hidden;
 		border-radius: 0.9rem;
-		background-color: #111;
+		background-color: rgba(255, 255, 255, 0);
 		transform-origin: center;
 		clip-path: inset(0 round 0.9rem);
 		-webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -92,6 +92,12 @@ function charsOf(label: string) {
 		object-fit: cover;
 		object-position: center;
 		border-radius: inherit;
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		transform: translateZ(0);
+		will-change: transform;
+		image-rendering: auto;
+		-ms-interpolation-mode: bicubic;
 	}
 
 	.cta__copy {
@@ -178,7 +184,7 @@ function charsOf(label: string) {
 
 	.cta__button:hover,
 	.cta__button:focus-visible {
-		background-color: #f5f5f5;
+		background-color: #2e2e2e;
 		outline: none;
 	}
 

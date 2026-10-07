@@ -2,6 +2,7 @@
 import {
 	FOOTER_BACK_TO_TOP,
 	FOOTER_BRAND,
+	FOOTER_LARGE_TEXT,
 	FOOTER_CREDIT,
 	FOOTER_HEADLINE,
 	FOOTER_META_LINKS,
@@ -21,7 +22,7 @@ function charsOf(label: string) {
 }
 
 function socialClass(link: any) {
-	return "footer__social " + link.class;
+	return "footer__social-face " + link.class;
 }
 ---
 
@@ -86,8 +87,7 @@ function socialClass(link: any) {
 							aria-hidden={copy === 0 ? undefined : 'true'}
 						>
 							<p class="footer__brand-name">
-								{FOOTER_BRAND}
-								<span class="footer__brand-mark">©</span>
+								{FOOTER_LARGE_TEXT}
 							</p>
 						</div>
 					))
@@ -200,8 +200,8 @@ function socialClass(link: any) {
 	}
 
 	.footer__social {
-		--icon-size: 2.5rem;
-		--glyph-size: 1.175rem;
+		--icon-size: 4rem;
+		--glyph-size: 2rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -247,7 +247,6 @@ function socialClass(link: any) {
 		width: var(--glyph-size);
 		height: var(--glyph-size);
 		overflow: hidden;
-		color: #fff;
 	}
 
 	.footer__social :global(svg) {
@@ -328,14 +327,14 @@ function socialClass(link: any) {
 	}
 
 	.footer__brand-name {
-		--brand-size: 4.5rem;
+		--brand-size: 2rem;
 		flex: 0 0 auto;
 		margin: 0;
 		color: var(--color-fg);
 		font-family: var(--font-sans);
 		font-weight: 700;
 		font-size: var(--brand-size);
-		line-height: 0.86;
+		line-height: 1.5;
 		letter-spacing: -0.12rem;
 		white-space: nowrap;
 	}
@@ -467,7 +466,7 @@ function socialClass(link: any) {
 		}
 
 		.footer__brand-name {
-			--brand-size: 8.5rem;
+			--brand-size: 5rem;
 			letter-spacing: -0.22rem;
 		}
 
@@ -511,7 +510,7 @@ function socialClass(link: any) {
 		}
 
 		.footer__brand-name {
-			--brand-size: 13.5rem;
+			--brand-size: 8rem;
 			letter-spacing: -0.32rem;
 		}
 
