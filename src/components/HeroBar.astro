@@ -1,6 +1,11 @@
 ---
+import { check } from 'astro:schema';
 import { SOCIAL_LINKS_LEFT, SOCIAL_LINKS_RIGHT } from '../consts';
 import SocialGlyph from './SocialGlyph.astro';
+
+function socialClass(link: any) {
+	return "hero-bar__icon-face " + link.class;
+}
 ---
 
 <div class="hero-bar">
@@ -10,11 +15,11 @@ import SocialGlyph from './SocialGlyph.astro';
 				<a class="hero-bar__icon" href={link.href} aria-label={link.label} target="_blank" rel="noreferrer">
 					<span class="hero-bar__icon-viewport">
 						<span class="hero-bar__icon-track">
-							<span class="hero-bar__icon-face">
+							<span class={socialClass(link)}>
 								<SocialGlyph id={link.id} />
 							</span>
-							<span class="hero-bar__icon-face">
-								<SocialGlyph id={link.id} />
+							<span class={socialClass(link)}>
+								<SocialGlyph id={link.id}  />
 							</span>
 						</span>
 					</span>
@@ -31,10 +36,10 @@ import SocialGlyph from './SocialGlyph.astro';
 				<a class="hero-bar__icon" href={link.href} aria-label={link.label} target="_blank" rel="noreferrer">
 					<span class="hero-bar__icon-viewport">
 						<span class="hero-bar__icon-track">
-							<span class="hero-bar__icon-face">
+							<span class={socialClass(link)}>
 								<SocialGlyph id={link.id} />
 							</span>
-							<span class="hero-bar__icon-face">
+							<span class={socialClass(link)}>
 								<SocialGlyph id={link.id} />
 							</span>
 						</span>
@@ -46,6 +51,14 @@ import SocialGlyph from './SocialGlyph.astro';
 </div>
 
 <style>
+	.social-black {
+		color: #000
+	}
+
+	.social-blue {
+		color: blue
+	}
+
 	.hero-bar {
 		position: absolute;
 		right: 0;
@@ -82,7 +95,7 @@ import SocialGlyph from './SocialGlyph.astro';
 		border: 0.08rem solid rgb(255 255 255 / 0.16);
 		border-radius: 50%;
 		background-color: rgb(255 255 255 / 8%);
-		color: #fff;
+		color: #000;
 		pointer-events: auto;
 		transition: background-color 0.2s ease;
 	}
@@ -118,7 +131,6 @@ import SocialGlyph from './SocialGlyph.astro';
 		width: var(--glyph-size);
 		height: var(--glyph-size);
 		overflow: hidden;
-		color: #fff;
 	}
 
 	.hero-bar__icon :global(svg) {

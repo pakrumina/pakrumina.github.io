@@ -6,44 +6,44 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.local(),
-			name: 'Creato Display',
-			cssVariable: '--font-creato-display',
+			name: 'Avenir',
+			cssVariable: '--font-avenir-display',
 			options: {
 				variants: [
 					{
 						weight: 100,
 						style: 'normal',
-						src: ['./src/assets/fonts/creato-display/CreatoDisplay-Thin.woff2'],
+						src: ['./src/assets/fonts/avenir/Avenir Light.ttf'],
 					},
 					{
 						weight: 300,
 						style: 'normal',
-						src: ['./src/assets/fonts/creato-display/CreatoDisplay-Light.woff2'],
+						src: ['./src/assets/fonts/avenir/Avenir Light.ttf'],
 					},
 					{
 						weight: 400,
 						style: 'normal',
-						src: ['./src/assets/fonts/creato-display/CreatoDisplay-Regular.woff2'],
+						src: ['./src/assets/fonts/avenir/Avenir Regular.ttf'],
 					},
 					{
 						weight: 500,
 						style: 'normal',
-						src: ['./src/assets/fonts/creato-display/CreatoDisplay-Medium.woff2'],
+						src: ['./src/assets/fonts/avenir/Avenir Regular.ttf'],
 					},
 					{
 						weight: 700,
 						style: 'normal',
-						src: ['./src/assets/fonts/creato-display/CreatoDisplay-Bold.woff2'],
+						src: ['./src/assets/fonts/avenir/Avenir Heavy.ttf'],
 					},
 					{
 						weight: 800,
 						style: 'normal',
-						src: ['./src/assets/fonts/creato-display/CreatoDisplay-ExtraBold.woff2'],
+						src: ['./src/assets/fonts/avenir/Avenir Heavy.ttf'],
 					},
 					{
 						weight: 900,
 						style: 'normal',
-						src: ['./src/assets/fonts/creato-display/CreatoDisplay-Black.woff2'],
+						src: ['./src/assets/fonts/avenir/Avenir Heavy.ttf'],
 					},
 				],
 			},

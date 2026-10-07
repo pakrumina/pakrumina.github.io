@@ -1,21 +1,19 @@
 /** Generic site config for the Craift theme demo. Use example.com only. */
-export const SITE_TITLE = 'Craift';
-export const SITE_DESCRIPTION = 'A minimal Astro theme for portfolios and blogs.';
-export const CONTACT_EMAIL = 'hello@example.com';
-export const CONTACT_PHONE = '+1 (212) 555-0148';
-export const CONTACT_PHONE_HREF = 'tel:+12125550148';
+export const SITE_TITLE = 'Noname';
+export const SITE_DESCRIPTION = 'Patrīcijas Krūmiņas portfolio un blogs';
+export const CONTACT_EMAIL = 'patricija@noname.lv';
 
-export const CONTACT_KICKER = 'Contact us';
+export const CONTACT_KICKER = 'Sazinies ar mani';
 export const CONTACT_TITLE = {
-	lead: 'Get in',
-	main: 'Touch',
+	lead: 'Uzraksti',
+	main: 'Man',
 } as const;
 export const CONTACT_DESCRIPTION =
-	'Reach out to the studio to talk about your project and how a distinctive brand can grow with you.';
+	'Sazinies ar mani par idejām un projektiem, kas Tev ir padomā';
 
-export const CONTACT_FORM_SUBMIT = 'Send message';
-export const CONTACT_FORM_SUCCESS = 'Thanks. Your message looks good.';
-export const CONTACT_FORM_ERROR = 'Please check the fields and try again.';
+export const CONTACT_FORM_SUBMIT = 'Nosūtīt ziņu';
+export const CONTACT_FORM_SUCCESS = 'Paldies, ziņa nosūtīta veiksmīgi.';
+export const CONTACT_FORM_ERROR = 'Lūdzu, pārbaudi laukus un mēģini vēlreiz';
 export const CONTACT_FORM_DEMO_NOTE =
 	'This demo validates in the browser only. Set CONTACT_FORM_ACTION to deliver mail.';
 
@@ -49,109 +47,68 @@ export const CONTACT_FIELDS = [
 	},
 ] as const;
 
-export const CONTACT_FAQ_TITLE = {
-	lead: 'Common',
-	main: 'Questions',
-} as const;
-
-export const CONTACT_FAQS = [
-	{
-		question: 'How soon do you reply?',
-		answer:
-			'We usually reply within two business days. If the brief is urgent, say so in the subject and we will confirm a time to talk.',
-	},
-	{
-		question: 'What should I include in my message?',
-		answer:
-			'Share the goal, the timeline, and any references you already have. A short note is enough to start. We will ask for more once we know the shape of the work.',
-	},
-	{
-		question: 'Do you take on remote briefs?',
-		answer:
-			'Yes. Most of the work happens over shared files and scheduled calls. Location is not a barrier if the brief is clear and the team can review on time.',
-	},
-	{
-		question: 'Can we start with a smaller piece of work?',
-		answer:
-			'Yes. A focused identity or a verbal pass can come first. We can grow the system later without starting the process over.',
-	},
-	{
-		question: 'What happens after we send a message?',
-		answer:
-			'We read the brief, confirm it is a fit, and suggest a call. If we move forward, we send a simple scope, timeline, and the next step to begin.',
-	},
-] as const;
-
-export const HERO_KICKER = 'Brand Forward';
+export const HERO_KICKER = 'Patrīcja Krūmiņa';
 export const HERO_TITLE = {
-	lead: 'Craift',
-	main: 'Studio©',
+	lead: 'PATRĪCIJA',
+	main: 'KRŪMIŅA',
 } as const;
-export const HERO_DESCRIPTION = 'Crafting distinctive identities for ambitious brands';
+export const HERO_DESCRIPTION = 'NONAME';
 
 export const HERO_TRAIL_IMAGES = [
-	'/hero-trail/01.png',
-	'/hero-trail/02.png',
-	'/hero-trail/03.png',
-	'/hero-trail/04.png',
-	'/hero-trail/05.png',
-	'/hero-trail/06.png',
-	'/hero-trail/07.png',
-	'/hero-trail/08.png',
+	'/hero-trail/ķēms_iet_800x800px-01.png',
+	'/hero-trail/ķēms_iet_800x800px-02.png',
+	'/hero-trail/ķēms_iet_800x800px-03.png',
+	'/hero-trail/ķēms_iet_800x800px-04.png',
+	'/hero-trail/ķēms_iet_800x800px-05.png',
+	'/hero-trail/ķēms_iet_800x800px-06.png',
+	'/hero-trail/ķēms_iet_800x800px-07.png',
+	'/hero-trail/ķēms_iet_800x800px-08.png',
+	'/hero-trail/ķēms_iet_800x800px-09.png',
+	'/hero-trail/ķēms_iet_800x800px-10.png',
+	'/hero-trail/ķēms_iet_800x800px-11.png',
+	'/hero-trail/ķēms_iet_800x800px-12.png',
 ] as const;
 
 
 export const PROJECTS_TITLE = {
-	lead: 'Selected',
-	main: 'Works©',
+	lead: 'Mani',
+	main: 'Darbi',
 } as const;
 
-export const PROJECTS_LINK = { href: '/contact', label: "Let's Talk" } as const;
+export const PROJECTS_LINK = { href: '/contact', label: "Sazināsimies" } as const;
 
 export const BLOG_TITLE = {
-	lead: 'Studio',
-	main: 'Notes',
+	lead: 'Manas',
+	main: 'Domas',
 } as const;
 
 export const BLOG_DESCRIPTION =
-	'Notes from the studio on briefs, identity systems, and the work that keeps a brand useful after launch.';
+	'Izdomā, ko šeit rakstīt';
 
-export const BLOG_LINK = { href: '/contact', label: "Let's Talk" } as const;
+export const BLOG_LINK = { href: '/contact', label: "Sazināsimies" } as const;
 
 export const BLOG_READ_MORE_TITLE = {
-	lead: 'Read',
-	main: 'More',
+	lead: 'Lasīt',
+	main: 'Vairāk',
 } as const;
 
-export const BLOG_ALL_POSTS = { href: '/blog', label: 'All Posts' } as const;
+export const BLOG_ALL_POSTS = { href: '/blog', label: 'Visi raksti' } as const;
 
 export const EXPLORE_NEXT_KICKER = 'Nākamais darbs';
 
 export const EXPLORE_NEXT_TITLE = {
-	lead: 'Iepazīsti',
-	main: 'Nākamais',
-} as const;
-
-export const SERVICES_PAGE_TITLE = {
-	lead: 'Studio',
-	main: 'Services',
-} as const;
-
-export const SERVICES_PAGE_LINK = { href: '/contact', label: "Let's Talk" } as const;
-
-export const SERVICES_TITLE = {
-	lead: 'Branding',
-	main: 'Solutions',
+	lead: 'Nākamais',
+	main: 'Darbs',
 } as const;
 
 export const CTA_TITLE = {
-	lead: "Let's Work",
-	main: 'Together',
+	lead: "Strādāsim",
+	main: 'Kopā',
 } as const;
 
-export const CTA_LINK = { href: '/contact', label: 'Get in touch' } as const;
+export const CTA_LINK = { href: '/contact', label: 'Sazināsimies' } as const;
 
-export const PARTNERS_LABEL = 'Global Creative Partners';
+export const PARTNERS_LABEL = 'Mani ķēmi';
 
 export const PARTNER_LOGOS = [
 	{ src: '/partners/partner-01.svg', alt: 'Partner 01' },
@@ -163,24 +120,24 @@ export const PARTNER_LOGOS = [
 ] as const;
 
 export const NAV_LINKS_LEFT = [
-	{ href: '/', label: 'Home' },
-	{ href: '/projects', label: 'Projects' },
+	{ href: '/', label: 'Sākums' },
+	{ href: '/projects', label: 'Darbi' },
 ] as const;
 
 export const NAV_LINKS_RIGHT = [
-	{ href: '/blog', label: 'Blog' },
-	{ href: '/contact', label: 'Contact' },
+	{ href: '/blog', label: 'Blogs' },
+	{ href: '/contact', label: 'Sazināties' },
 ] as const;
 
 export const FOOTER_HEADLINE = {
-	lead: "Let's connect and create",
-	main: 'something',
-	muted: 'great together.',
+	lead: "Sazināsimies un kopā",
+	main: 'izveidosim',
+	muted: 'kaut ko lielisku.',
 } as const;
 
-export const FOOTER_BRAND = 'Craift Studio';
+export const FOOTER_BRAND = 'Patrīcija Krūmiņa, Noname';
 
-export const FOOTER_CREDIT = 'All Rights Reserved';
+export const FOOTER_CREDIT = 'Visas tiesības aizsargātas';
 
 export const FOOTER_META_LINKS = [{ href: '/licenses', label: 'Licenses' }] as const;
 
@@ -215,11 +172,11 @@ export const LICENSES_SECTIONS = [
 export const FOOTER_BACK_TO_TOP = 'Back to Top';
 
 export const SOCIAL_LINKS_LEFT = [
-	{ href: 'https://instagram.com', label: 'Instagram', id: 'instagram' },
-	{ href: 'https://linkedin.com', label: 'LinkedIn', id: 'linkedin' },
+	{ href: 'https://instagram.com/pakrumina', label: 'Instagram Patrīcija Krūmiņa', id: 'instagram', class: 'social-black' },
+	{ href: 'https://instagram.com/bedrebedrebedrebedre', label: 'Instagram Bedre', id: 'instagram', class: 'social-blue' },
 ] as const;
 
 export const SOCIAL_LINKS_RIGHT = [
-	{ href: 'https://behance.net', label: 'Behance', id: 'behance' },
-	{ href: 'https://dribbble.com', label: 'Dribbble', id: 'dribbble' },
+	{ href: 'https://www.youtube.com/@pakrumina', label: 'Youtube Patrīcija Krūmiņa', id: 'youtube', class: 'social-black' },
+	{ href: 'https://www.youtube.com/@bedrebedrebedrebedre', label: 'Youtube Bedre', id: 'youtube', class: 'social-blue' },
 ] as const;

@@ -24,6 +24,10 @@ const formAction = CONTACT_FORM_ACTION.trim();
 function charsOf(label: string) {
 	return [...label].map((char) => (char === ' ' ? '\u00A0' : char));
 }
+
+function socialClass(link: any) {
+	return "contact__social-face " + link.class;
+}
 ---
 
 <section class="contact" id="contact" aria-label="Contact">
@@ -126,11 +130,11 @@ function charsOf(label: string) {
 						<a class="contact__social" href={link.href} aria-label={link.label} target="_blank" rel="noreferrer">
 							<span class="contact__social-viewport">
 								<span class="contact__social-track">
-									<span class="contact__social-face">
-										<SocialGlyph id={link.id} />
+									<span class={socialClass(link)}>
+										<SocialGlyph id={link.id}/>
 									</span>
-									<span class="contact__social-face">
-										<SocialGlyph id={link.id} />
+									<span class={socialClass(link)}>
+										<SocialGlyph id={link.id}/>
 									</span>
 								</span>
 							</span>
@@ -213,6 +217,14 @@ function charsOf(label: string) {
 </section>
 
 <style>
+	.social-black {
+		color: #000
+	}
+
+	.social-blue {
+		color: blue
+	}
+
 	.contact {
 		width: 100%;
 		padding-block: 8rem 5rem;
@@ -444,7 +456,6 @@ function charsOf(label: string) {
 		width: var(--glyph-size);
 		height: var(--glyph-size);
 		overflow: hidden;
-		color: #fff;
 	}
 
 	.contact__social :global(svg) {

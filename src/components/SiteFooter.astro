@@ -19,6 +19,10 @@ const brandCopies = [0, 1, 2, 3];
 function charsOf(label: string) {
 	return [...label].map((char) => (char === ' ' ? '\u00A0' : char));
 }
+
+function socialClass(link: any) {
+	return "footer__social " + link.class;
+}
 ---
 
 <footer class="footer" data-footer>
@@ -33,13 +37,14 @@ function charsOf(label: string) {
 				<nav class="footer__socials" aria-label="Social">
 					{
 						socialLinks.map((link) => (
+							
 							<a class="footer__social" href={link.href} aria-label={link.label} target="_blank" rel="noreferrer">
 								<span class="footer__social-viewport">
 									<span class="footer__social-track">
-										<span class="footer__social-face">
+										<span class={socialClass(link)}>
 											<SocialGlyph id={link.id} />
 										</span>
-										<span class="footer__social-face">
+										<span class={socialClass(link)}>
 											<SocialGlyph id={link.id} />
 										</span>
 									</span>
@@ -122,6 +127,14 @@ function charsOf(label: string) {
 </footer>
 
 <style>
+	.social-black {
+		color: #000
+	}
+
+	.social-blue {
+		color: blue
+	}
+
 	.footer {
 		position: relative;
 		width: 100%;
