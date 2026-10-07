@@ -17,37 +17,69 @@ logo_url: https://YOUR_DOMAIN.com/favicon.svg
 
 collections:
   - name: "projects"
-    label: "Projects"
+    label: "Darbi"
     folder: "src/content/projects"
     create: true
     slug: "{{slug}}"
     identifier_field: "title"
-    sortable_fields: ["date", "title"]
-    default_sort: { field: "date", dir: "Descending" }
+    sortable_fields: ["datetime", "title"]
+    default_sort: { field: "datetime", dir: "Descending" }
     fields:
-      - { label: "Virsraksts", name: "title", widget: "string" }
-      - { label: "Apraksts", name: "description", widget: "string" }
-      - { label: "Kategorija", name: "category", widget: "string", hint: "piemēram, video, zīmējums utml." }
+      - { label: "Virsraksts", name: "title", widget: "string", required: true }
+      - { label: "Apraksts", name: "description", widget: "string", required: true }
+      - { label: "Kategorija", name: "category", widget: "string", hint: "Piemēram, video, zīmējums utml." }
       - { 
-          label: "Statiska bilde", 
+          label: "Statiska bilde pirms video", 
           name: "thumbnail", 
           widget: "string", 
           required: true,
-          hint: "Bilde, ko rādīt, pirms uzbrauc ar peli (pilna adrese no R2, piemēram, https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/nice.PNG)" 
+          hint: "Bilde, ko rādīt sarakstā, pirms uzbrauc ar peli (pilna adrese no R2, piemēram, https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/nice.PNG)" 
+        }
+      - { 
+          label: "Galvenā bilde", 
+          name: "titleImage", 
+          widget: "string", 
+          required: true,
+          hint: "Bilde, ko pirmo rāda atverot darba skatu (pilna adrese no R2, piemēram, https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/nice.PNG)" 
         }
       - { 
           label: "Video uzbraucot ar peli", 
           name: "hoverVideoUrl", 
           widget: "string", 
-          required: false, 
-          hint: "Video uzbraucot ar peli (pilna adrese no R2, piemēram, https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/nice.PNG)" 
+          hint: "Video uzbraucot ar peli sarakstā (pilna adrese no R2, piemēram, https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/nice.PNG)" 
         }
       - { 
           label: "YouTube ID", 
           name: "youtubeId", 
-          widget: "string", 
-          required: false, 
+          widget: "string",
           hint: "Youtube video 11 simbolu ID (piemēram, dQw4w9WgXcQ)" 
         }
-      - { label: "Gads", name: "year", widget: "string" }
-      - { label: "Saturs", name: "body", widget: "markdown" }
+      - { label: "Gads", name: "year", widget: "string", required: true }
+      - { label: "Saturs", name: "body", widget: "markdown", required: true }
+  - name: "blogs"
+    label: "Blogs"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    sortable_fields: ["datetime", "title"]
+    default_sort: { field: "datetime", dir: "Descending" }
+    fields:
+      - { label: "Virsraksts", name: "title", widget: "string", required: true }
+      - { label: "Apraksts", name: "description", widget: "string", required: true }
+      - { label: "Kategorija", name: "category", widget: "string", hint: "Piemēram, video, zīmējums utml.", required: true }
+      - { 
+          label: "Saraksta bilde", 
+          name: "thumbnail", 
+          widget: "string", 
+          required: true,
+          hint: "Bilde, ko rāda sarakstā (pilna adrese no R2, piemēram, https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/nice.PNG)" 
+        }
+      - { 
+          label: "Galvenā bilde", 
+          name: "titleImage", 
+          widget: "string", 
+          required: true,
+          hint: "Bilde, ko pirmo rāda atverot blogu (pilna adrese no R2, piemēram, https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/nice.PNG)" 
+        }
+      - { label: "Saturs", name: "body", widget: "markdown", required: true }

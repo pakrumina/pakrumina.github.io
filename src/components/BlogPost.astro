@@ -9,10 +9,9 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const minutes = readingMinutes(post.body);
 const meta = [
-	{ label: 'Category', value: post.data.category },
-	{ label: 'Reading time', value: readingLabel(minutes) },
+	{ label: 'Kategorija', value: post.data.category },
+	{ label: 'Datums', value: post.data.datetime.toLocaleString("lv-LV") },
 ];
 ---
 
@@ -36,7 +35,7 @@ const meta = [
 		</header>
 
 		<figure class="post__hero">
-			<img class="post__image" src={post.data.image} alt={post.data.title} />
+			<img class="post__image" src={post.data.titleImage} alt={post.data.title} />
 		</figure>
 
 		<div class="post__body">

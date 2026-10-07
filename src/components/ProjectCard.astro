@@ -1,6 +1,6 @@
 ---
 const { project } = Astro.props;
-const { title, description, category, thumbnail, hoverVideoUrl } = project.data;
+const { title, description, category, titleImage, hoverVideoUrl } = project.data;
 ---
 
 <li class="works__item">
@@ -10,7 +10,7 @@ const { title, description, category, thumbnail, hoverVideoUrl } = project.data;
     aria-label={`${project.title}`}
     >
         <div class="works__media">
-            <img class="works__image" src={thumbnail} alt="" data-works-image />
+            <img class="works__image" src={titleImage} alt="" data-works-image />
         </div>
         <div class="works__meta">
             <p class="works__label">
