@@ -38,6 +38,19 @@ const meta = [
 			<img class="case__image" src={data.thumbnail} alt={data.title} />
 		</figure>
 
+		{data.youtubeId && (
+			<div class="video-container">
+				<div class="video-wrapper">
+				<iframe
+					src={`https://www.youtube.com/embed/${data.youtubeId}`}
+					title={`${data.title}`}
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen
+				></iframe>
+				</div>
+			</div>
+		)}
+
 		<section class="case__split" aria-labelledby="case-goal-title">
 			<div class="case__copy">
 				<Content />
@@ -47,6 +60,39 @@ const meta = [
 </article>
 
 <style>
+	.video-container {
+		margin-top: 4.5rem;
+		float: left;
+		width: 100%;
+		max-width: 50%;
+		margin-right: 2rem;
+		margin-bottom: 1.5rem;
+		margin-left: 0;
+	}
+
+	.video-wrapper {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		border-radius: 12px;
+		overflow: hidden;
+		background-color: #000;
+		box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+	}
+
+	.video-wrapper iframe {
+		width: 100%;
+		height: 100%;
+		border: 0;
+		display: block;
+	}
+
+	.content-wrapper::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
 	.case {
 		width: 100%;
 		padding-block: 8rem 0;
@@ -243,6 +289,10 @@ const meta = [
 	}
 
 	@media (min-width: 48rem) {
+		.video-container {
+			margin-top: 2rem;
+		}
+
 		.case {
 			padding-block: 9rem 0;
 		}
@@ -286,7 +336,7 @@ const meta = [
 		.case__split {
 			grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
 			gap: 2.5rem 3rem;
-			margin-top: 6rem;
+			margin-top: 2rem;
 		}
 
 		.case__split--reverse {
@@ -322,6 +372,10 @@ const meta = [
 	}
 
 	@media (min-width: 64rem) {
+		.video-container {
+			margin-top: 4rem;
+		}
+
 		.case {
 			padding-block: 10rem 0;
 		}
@@ -357,7 +411,7 @@ const meta = [
 
 		.case__split {
 			gap: 3rem 4rem;
-			margin-top: 7.5rem;
+			margin-top: 4rem;
 		}
 
 		.case__heading {
