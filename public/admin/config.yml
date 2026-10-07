@@ -3,9 +3,9 @@ local_backend: true
 
 backend:
   name: github
-  repo: pakrumina/pata-portfolio
+  repo: pakrumina/pakrumina.github.io
   branch: main
-  site_domain: pakrumina.github.io/pata-portfolio
+  site_domain: pakrumina.github.io
   base_url: https://pata-decap-oauth.pakrumina.workers.dev
   auth_endpoint: auth
 
