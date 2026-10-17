@@ -27,7 +27,15 @@ collections:
     fields:
       - { label: "Virsraksts", name: "title", widget: "string", required: true }
       - { label: "Apraksts", name: "description", widget: "string", required: true }
-      - { label: "Kategorija", name: "category", widget: "string", hint: "Piemēram, video, zīmējums utml." }
+      - label: "Kategorijas"
+        name: "categories"
+        widget: "relation"
+        collection: "settings"
+        file: "categories"
+        multiple: true
+        search_fields: ["categories.*.name"]
+        value_field: "categories.*.name"
+        display_fields: ["categories.*.name"]
       - { 
           label: "Statiska bilde pirms video", 
           name: "thumbnail", 
@@ -57,7 +65,7 @@ collections:
       - { label: "Gads", name: "year", widget: "string", required: true }
       - { label: "Saturs", name: "body", widget: "markdown", required: true }
   - name: "blogs"
-    label: "Blogs"
+    label: "Klade"
     folder: "src/content/blog"
     create: true
     slug: "{{slug}}"
@@ -67,7 +75,15 @@ collections:
     fields:
       - { label: "Virsraksts", name: "title", widget: "string", required: true }
       - { label: "Apraksts", name: "description", widget: "string", required: true }
-      - { label: "Kategorija", name: "category", widget: "string", hint: "Piemēram, video, zīmējums utml.", required: true }
+      - label: "Kategorijas"
+        name: "categories"
+        widget: "relation"
+        collection: "settings"
+        file: "categories"
+        multiple: true
+        search_fields: ["categories.*.name"]
+        value_field: "categories.*.name"
+        display_fields: ["categories.*.name"]
       - { 
           label: "Saraksta bilde", 
           name: "thumbnail", 
@@ -89,6 +105,16 @@ collections:
     editor:
       preview: false
     files:
+      - name: "categories"
+        label: "Kategorijas"
+        file: "src/content/site/categories.json"
+        fields:
+          - label: "Kategoriju sarakstā pieejamās kategorijas"
+            name: "categories"
+            widget: "list"
+            collapsed: false
+            summary: "{{fields.name}}"
+            field: { label: "Category", name: "name", widget: "string" }
       - name: "constants"
         label: "Visi lapā atrodamie teksti"
         file: "src/content/site/settings.json"

@@ -1,6 +1,6 @@
 ---
 const { project } = Astro.props;
-const { title, description, thumbnail, titleImage, hoverVideoUrl } = project.data;
+const { title, categories, description, thumbnail, hoverVideoUrl } = project.data;
 ---
 
 <li class="works__item">
@@ -40,32 +40,11 @@ const { title, description, thumbnail, titleImage, hoverVideoUrl } = project.dat
                 </span>
                 {description}
             </p>
-            <span class="works__arrow" aria-hidden="true">
-                <span class="works__arrow-mask">
-                    <span class="works__arrow-icon" data-works-arrow-current>
-                        <svg viewBox="0 0 16 16" fill="none">
-                            <path
-                                d="M4 12L12 4M12 4H6.5M12 4V9.5"
-                                stroke="currentColor"
-                                stroke-width="1.4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-                    </span>
-                    <span class="works__arrow-icon" data-works-arrow-next>
-                        <svg viewBox="0 0 16 16" fill="none">
-                            <path
-                                d="M4 12L12 4M12 4H6.5M12 4V9.5"
-                                stroke="currentColor"
-                                stroke-width="1.4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-                    </span>
-                </span>
-            </span>
+			<div class="works-card__tags">
+				{categories && categories.map((cat) => (
+					<span class="works-card__tag">{cat}</span>
+				))}
+			</div>
         </div>
     </a>
 </li>
@@ -244,6 +223,27 @@ const { title, description, thumbnail, titleImage, hoverVideoUrl } = project.dat
 
 	.works__sep {
 		margin-inline: 0.35rem;
+	}
+
+	.works-card__tags {
+		display: flex;
+		gap: 0.4rem;
+		flex-wrap: wrap;
+		margin-top: 0.5rem; /* Add spacing if needed */
+	}
+
+	.works-card__tag {
+		/* REMOVE position: absolute, top, left from here */
+		padding: 0.4rem 0.8rem;
+		border-radius: 999rem;
+		background-color: #0a0a0a;
+		color: #fff;
+		font-family: var(--font-sans);
+		font-weight: 600;
+		font-size: 0.6875rem;
+		line-height: 1;
+		letter-spacing: 0.06rem;
+		text-transform: uppercase;
 	}
 
 	.works__arrow {

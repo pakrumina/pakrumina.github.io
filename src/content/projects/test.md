@@ -1,7 +1,9 @@
 ---
 title: Test
 description: Test
-category: Test
+categories:
+  - Audio
+  - DJ Krankenwagen
 thumbnail: https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/pazudis.jpg
 titleImage: https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/pazudis.jpg
 hoverVideoUrl: https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/pazudis.mp4

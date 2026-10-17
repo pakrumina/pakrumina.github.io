@@ -12,7 +12,11 @@ const { post, heading: Heading = 'h2' } = Astro.props;
 <a class="blog-card" href={`/blog/${post.id}`}>
 	<div class="blog-card__media">
 		<img class="blog-card__image" src={post.data.titleImage} alt="" data-blog-image />
-		<span class="blog-card__tag">{post.data.category}</span>
+		<div class="blog-card__tags">
+			{post.data.categories && post.data.categories.map((cat) => (
+				<span class="blog-card__tag">{cat}</span>
+			))}
+		</div>
 	</div>
 	<div class="blog-card__body">
 		<Heading class="blog-card__title">{post.data.title}</Heading>
@@ -126,11 +130,17 @@ const { post, heading: Heading = 'h2' } = Astro.props;
 		transform: translate(-50%, -50%) scale(1);
 	}
 
-	.blog-card__tag {
+	.blog-card__tags {
 		position: absolute;
 		top: 0.85rem;
 		left: 0.85rem;
 		z-index: 2;
+		display: flex;
+		gap: 0.4rem;
+		flex-wrap: wrap;
+	}
+
+	.blog-card__tag {
 		padding: 0.4rem 0.8rem;
 		border-radius: 999rem;
 		background-color: #0a0a0a;

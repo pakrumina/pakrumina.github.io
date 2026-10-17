@@ -74,7 +74,7 @@ const projects = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
-		category: z.string(),
+		categories: z.array(z.string()),
 		thumbnail: z.string(),
 		titleImage: z.string(),
 		hoverVideoUrl: z.string().optional(),
@@ -89,7 +89,7 @@ const blog = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
-		category: z.string(),
+		categories: z.array(z.string()),
 		thumbnail: z.string(),
 		titleImage: z.string(),
 		datetime: z.coerce.date().default(() => new Date()),
