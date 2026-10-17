@@ -8,6 +8,8 @@ const { title, categories, thumbnail, hoverVideoUrl } = project.data;
     href={`/projects/${project.id}`} 
     class="works__card"
     aria-label={`${project.title}`}
+	onmouseenter="playVideo(this)" 
+	onmouseleave="stopVideo(this)"
     >
         <div class="project-card works__media">
 			{thumbnail && (
@@ -26,8 +28,6 @@ const { title, categories, thumbnail, hoverVideoUrl } = project.data;
 					loop 
 					playsinline
 					preload="metadata"
-					onmouseenter="this.play()" 
-					onmouseleave="this.pause(); this.currentTime = 0;"
 					class="card-video"
 				></video>
 			)}
@@ -60,7 +60,6 @@ const { title, categories, thumbnail, hoverVideoUrl } = project.data;
 	}
 
 	.project-card:hover {
-		transform: translateY(-2px);
 		border-color: #d4d4d8;
 		box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
 	}
@@ -86,12 +85,7 @@ const { title, categories, thumbnail, hoverVideoUrl } = project.data;
 
 	.card-image {
 		z-index: 3;
-		transition: opacity 0.3s ease;
 		pointer-events: none;
-	}
-
-	.project-card:hover .card-image {
-		opacity: 0 !important;;
 	}
 
 
@@ -319,6 +313,42 @@ const { title, categories, thumbnail, hoverVideoUrl } = project.data;
 <script>
 	import gsap from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	window.playVideo = function(element) {
+		const video = element.querySelector('video');
+		video.play();
+		
+    };
+
+	window.stopVideo = function(element) {
+		const video = element.querySelector('video');
+		video.pause();
+		video.currentTime = 0;
+		
+    };
+
+	const items = document.querySelectorAll('.works__item');
+
+	items.forEach(item => {
+		const image = document.querySelector('img');
+		item.addEventListener('mouseenter', () => {
+			gsap.to(image, { 
+				opacity: 0, 
+				scale: 1, 
+				duration: 0.3, 
+				ease: 'power2.in' 
+			});
+		});
+
+		item.addEventListener('mouseleave', () => {
+			gsap.to(image, { 
+				opacity: 1, 
+				scale: 1, 
+				duration: 0.3, 
+				ease: 'power2.in' 
+			});
+		});
+	});
 
 	gsap.registerPlugin(ScrollTrigger);
 
