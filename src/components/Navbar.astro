@@ -4,7 +4,7 @@ import { NAV_LINKS_LEFT, NAV_LINKS_RIGHT } from '../consts';
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 function isActive(href: string) {
-	if (href === '/') return pathname === '/';
+	if (href === '/') return false;
 	return pathname === href || pathname.startsWith(`${href}/`);
 }
 
@@ -366,7 +366,8 @@ function getNavHref(type: string) {
 	}
 
 	.nav__link:hover,
-	.nav__menu-link:hover {
+	.nav__menu-link:hover,
+	.is-active {
 		background-color: #2e2e2e;
 	}
 

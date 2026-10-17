@@ -1,6 +1,6 @@
 ---
-title: Test
-description: Test
+title: Kur agrāk skrēja degunradži, tagad izauguši dadži
+description: Kur agrāk skrēja degunradži, tagad izauguši dadži
 categories:
   - Audio
   - DJ Krankenwagen

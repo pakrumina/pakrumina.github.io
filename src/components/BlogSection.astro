@@ -2,15 +2,27 @@
 import type { CollectionEntry } from 'astro:content';
 import { BLOG_LINK, BLOG_TITLE } from '../consts';
 import BlogCard from './BlogCard.astro';
+import availableCategoriesJson from '../content/site/categories.json';
 
 interface Props {
 	posts: CollectionEntry<'blog'>[];
 }
 
+const availableCategories = getAvailableCategories();
 const { posts } = Astro.props;
 
 function charsOf(label: string) {
 	return [...label].map((char) => (char === ' ' ? '\u00A0' : char));
+}
+
+function getAvailableCategories() {
+	const categories = availableCategoriesJson.categories.map(c => c.name);
+	categories.unshift("Visas");
+	return categories;
+}
+
+function isDefaultActive(cat: string) {
+	return cat === 'Visas';
 }
 ---
 
@@ -36,11 +48,34 @@ function charsOf(label: string) {
 				</span>
 			</a>
 		</header>
-
-		<ul class="blog__grid">
+		<div class="category-filter" data-category-filter>
+			{availableCategories.map((cat) => (
+				<a
+					href="#"
+					class:list={['category-filter__btn', { 'is-active': isDefaultActive(cat) }]}
+					aria-label={cat}
+					name={cat}
+					data-filter-link
+					data-filter-hover
+					onclick={`toggleFiltering('${cat}', event)`}
+				>
+					<span class="category-filter__mask" aria-hidden="true">
+						{charsOf(cat).map((char) => (
+							<span class="category-filter__char-col">
+								<span class="category-filter__char-track">
+									<span class="category-filter__char">{char}</span>
+									<span class="category-filter__char">{char}</span>
+								</span>
+							</span>
+						))}
+					</span>
+				</a>
+			))}
+		</div>
+		<ul class="blog__grid" data-blog-grid>
 			{
 				posts.map((post) => (
-					<li class="blog__item">
+					<li class="blog__item" data-categories={post.data.categories}>
 						<BlogCard post={post} />
 					</li>
 				))
@@ -49,7 +84,184 @@ function charsOf(label: string) {
 	</div>
 </section>
 
+<script>
+    import { length } from 'astro:schema';
+import gsap from 'gsap';
+	var activeCategories = ['Visas'];
+
+	window.toggleFiltering = function(category, event) {
+        event.preventDefault();
+
+		const clickedEl = event.target.closest('a');
+		const filterContainer = clickedEl.closest('[data-category-filter]');
+        const allButtons = filterContainer.querySelectorAll('.category-filter__btn');
+		const selectAllButton = Array.from(allButtons).find(l => l.getAttribute('name') === 'Visas');
+		const grid = document.querySelector('[data-blog-grid]');
+		const items = grid.querySelectorAll('.blog__item');
+
+		if (category === 'Visas') {
+			activeCategories = ['Visas'];
+			allButtons.forEach(l => l.classList.remove('is-active'));
+            clickedEl.classList.add('is-active');
+		} else {
+			if (activeCategories.includes(category)) {
+				activeCategories = activeCategories.filter(cat => cat !== 'Visas' && cat !== category);
+				clickedEl.classList.remove('is-active');
+
+				if (activeCategories.length == 0) {
+					activeCategories = ['Visas'];
+					selectAllButton.classList.add('is-active');
+				} else {
+					selectAllButton.classList.remove('is-active');
+				}
+			} else {
+				activeCategories = activeCategories.filter(cat => cat !== 'Visas');
+				activeCategories.push(category);
+				clickedEl.classList.add('is-active');
+				selectAllButton.classList.remove('is-active');
+			}
+		}
+
+		const showAll = activeCategories.length == 0 || activeCategories.includes('Visas')
+		
+		items.forEach(item => {
+			if (showAll) {
+				item.style.display = '';
+				return;
+			}
+			const itemCategories = item.getAttribute('data-categories');
+
+			if (!itemCategories || itemCategories == "") {
+				item.style.display = 'none';
+				return;
+			}
+			const isMatch = activeCategories.some(cat => itemCategories.split(',').includes(cat));
+			item.style.display = isMatch ? '' : 'none';
+		});
+    };
+
+    function initFilterHover() {
+        const filterContainer = document.querySelector('[data-category-filter]');
+        if (!filterContainer) return;
+
+        const mm = gsap.matchMedia();
+        mm.add('(prefers-reduced-motion: no-preference)', () => {
+            const cleanups: Array<() => void> = [];
+
+            filterContainer.querySelectorAll('[data-filter-hover]').forEach((link) => {
+                const tracks = link.querySelectorAll('.category-filter__char-track');
+                if (tracks.length === 0) return;
+
+                gsap.set(tracks, { yPercent: 0 });
+
+                let hoverTl: ReturnType<typeof gsap.to> | undefined;
+
+                const playHover = () => {
+                    hoverTl?.kill();
+                    hoverTl = gsap.to(tracks, {
+                        yPercent: -50,
+                        duration: 0.35,
+                        ease: 'power3.out',
+                        stagger: 0.03,
+                        overwrite: true,
+                    });
+                };
+
+                const resetHover = () => {
+                    hoverTl?.kill();
+                    hoverTl = gsap.to(tracks, {
+                        yPercent: 0,
+                        duration: 0.35,
+                        ease: 'power3.out',
+                        stagger: 0.03,
+                        overwrite: true,
+                    });
+                };
+
+                link.addEventListener('mouseenter', playHover);
+                link.addEventListener('mouseleave', resetHover);
+                link.addEventListener('focus', playHover);
+                link.addEventListener('blur', resetHover);
+
+                cleanups.push(() => {
+                    hoverTl?.kill();
+                    link.removeEventListener('mouseenter', playHover);
+                    link.removeEventListener('mouseleave', resetHover);
+                    link.removeEventListener('focus', playHover);
+                    link.removeEventListener('blur', resetHover);
+                });
+            });
+
+            return () => {
+                cleanups.forEach((cleanup) => cleanup());
+            };
+        });
+    }
+
+    initFilterHover();
+    document.addEventListener('astro:after-swap', initFilterHover);
+</script>
+
 <style>
+	.category-filter {
+		display: flex;
+		margin-top: 2rem;
+		align-items: center;
+		gap: 0.75rem;
+		flex: 1;
+	}
+
+	.category-filter__btn{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.55rem 1.35rem;
+		border-radius: 6rem;
+		background-color: #000;
+		color: #fff;
+		font-family: var(--font-sans);
+		font-size: 0.875rem;
+		font-weight: 700;
+		letter-spacing: 0.04rem;
+		line-height: 1.2;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+		transition: background-color 0.2s ease;
+	}
+
+	.category-filter__btn:hover,
+	.is-active {
+		background-color: #2e2e2e;
+	}
+
+	.category-filter__mask {
+		display: inline-flex;
+		overflow: hidden;
+		height: 1.2em;
+		line-height: 1.2;
+	}
+
+	.category-filter__char-col {
+		display: block;
+		overflow: hidden;
+		height: 1.2em;
+		line-height: 1.2;
+	}
+
+	.category-filter__char-track {
+		display: flex;
+		flex-direction: column;
+		will-change: transform;
+	}
+
+	.category-filter__char {
+		display: block;
+		flex: 0 0 1.2em;
+		height: 1.2em;
+		line-height: 1.2;
+	}
+
 	.blog {
 		width: 100%;
 		padding-block: 11rem 5rem;

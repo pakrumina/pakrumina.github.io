@@ -1,9 +1,9 @@
 ---
 const { project } = Astro.props;
-const { title, categories, description, thumbnail, hoverVideoUrl } = project.data;
+const { title, categories, thumbnail, hoverVideoUrl } = project.data;
 ---
 
-<li class="works__item">
+<li class="works__item" data-categories={categories}>
     <a 
     href={`/projects/${project.id}`} 
     class="works__card"
@@ -35,10 +35,6 @@ const { title, categories, description, thumbnail, hoverVideoUrl } = project.dat
         <div class="works__meta">
             <p class="works__label">
                 {title}
-                <span class="works__sep" aria-hidden="true">
-                    -
-                </span>
-                {description}
             </p>
 			<div class="works-card__tags">
 				{categories && categories.map((cat) => (
