@@ -1,0 +1,123 @@
+{
+  "heroDescription": "NONAME",
+  "contactFormError": "Lūdzu, pārbaudi laukus un mēģini vēlreiz",
+  "navLinksRight": [
+    {
+      "section": "Klade",
+      "label": "Klade"
+    },
+    {
+      "section": "Sazināties",
+      "label": "Sazināties"
+    }
+  ],
+  "ctaTitle": {
+    "lead": "Strādāsim",
+    "main": "Kopā"
+  },
+  "partnersLabel": "Mani ķēmi",
+  "ctaLink": "Sazināsimies",
+  "blogReadMoreTitle": {
+    "lead": "Lasīt",
+    "main": "Vairāk"
+  },
+  "footerBrand": "Patrīcija Krūmiņa, SIA Noname",
+  "footerLargeText": "Varbūt kurmja uzdevums ir mūžīgi rakt!",
+  "contactFormHidden": [],
+  "footerHeadline": {
+    "lead": "Sazināsimies un kopā",
+    "muted": "izveidosim kaut ko lielisku."
+  },
+  "socialLinksRight": [
+    {
+      "href": "https://www.youtube.com/@pakrumina",
+      "label": "Youtube Patrīcija Krūmiņa",
+      "type": "Youtube",
+      "color": "Melns"
+    },
+    {
+      "href": "https://www.youtube.com/@bedrebedrebedrebedre",
+      "label": "Youtube Bedre",
+      "type": "Youtube",
+      "color": "Zils"
+    }
+  ],
+  "siteTitle": "Noname",
+  "exploreNextTitle": {
+    "lead": "Nākamais",
+    "main": "Darbs"
+  },
+  "socialLinksLeft": [
+    {
+      "href": "https://instagram.com/pakrumina",
+      "label": "Instagram Patrīcija Krūmiņa",
+      "type": "Instagram",
+      "class": "Melns",
+      "color": "Melns"
+    },
+    {
+      "href": "https://instagram.com/bedrebedrebedrebedre",
+      "label": "Instagram Bedre",
+      "type": "Instagram",
+      "color": "Zils"
+    }
+  ],
+  "blogAllPosts": "Visi raksti",
+  "projectsLink": "Sazināsimies",
+  "siteDescription": "Patrīcijas Krūmiņas portfolio un blogs",
+  "blogTitle": {
+    "lead": "Manas",
+    "main": "Domas"
+  },
+  "footerBackToTop": "Atpakaļ uz augšu",
+  "contactTitle": {
+    "lead": "Uzraksti",
+    "main": "Man"
+  },
+  "contactFields": [
+    {
+      "name": "name",
+      "label": "Vārds",
+      "type": "Parasts lauks"
+    },
+    {
+      "name": "email",
+      "label": "E-pasta adrese",
+      "type": "E-pasta lauks"
+    },
+    {
+      "name": "subject",
+      "label": "Tēma",
+      "type": "Parasts lauks"
+    },
+    {
+      "name": "message",
+      "label": "Ziņa",
+      "type": "Ziņas lauks"
+    }
+  ],
+  "blogDescription": "Izdomā, ko šeit rakstīt",
+  "contactFormSubmit": "Nosūtīt ziņu",
+  "blogLink": "Sazināsimies",
+  "contactEmail": "patricija@noname.lv",
+  "contactDescription": "Sazinies ar mani par idejām un projektiem, kas Tev ir padomā",
+  "navLinksLeft": [
+    {
+      "section": "Sākums",
+      "label": "Sākums"
+    },
+    {
+      "section": "Darbi",
+      "label": "Darbi"
+    }
+  ],
+  "projectsTitle": {
+    "lead": "Mani",
+    "main": "Darbi"
+  },
+  "heroTitle": {
+    "lead": "PATRĪCIJA",
+    "main": "KRŪMIŅA"
+  },
+  "contactFormSuccess": "Paldies, ziņa nosūtīta veiksmīgi."
+}

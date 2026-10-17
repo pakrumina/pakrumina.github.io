@@ -4,7 +4,8 @@ import { SOCIAL_LINKS_LEFT, SOCIAL_LINKS_RIGHT } from '../consts';
 import SocialGlyph from './SocialGlyph.astro';
 
 function socialClass(link: any) {
-	return "hero-bar__icon-face " + link.class;
+	var linkClass = link.color == 'Zils' ? 'social-blue' : 'social-black'
+	return "hero-bar__icon-face " + linkClass;
 }
 ---
 
@@ -16,10 +17,10 @@ function socialClass(link: any) {
 					<span class="hero-bar__icon-viewport">
 						<span class="hero-bar__icon-track">
 							<span class={socialClass(link)}>
-								<SocialGlyph id={link.id} />
+								<SocialGlyph id={link.type} />
 							</span>
 							<span class={socialClass(link)}>
-								<SocialGlyph id={link.id}  />
+								<SocialGlyph id={link.type}  />
 							</span>
 						</span>
 					</span>
@@ -37,10 +38,10 @@ function socialClass(link: any) {
 					<span class="hero-bar__icon-viewport">
 						<span class="hero-bar__icon-track">
 							<span class={socialClass(link)}>
-								<SocialGlyph id={link.id} />
+								<SocialGlyph id={link.type} />
 							</span>
 							<span class={socialClass(link)}>
-								<SocialGlyph id={link.id} />
+								<SocialGlyph id={link.type} />
 							</span>
 						</span>
 					</span>

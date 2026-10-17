@@ -16,13 +16,13 @@ function charsOf(label: string) {
 			</h1>
 			<a
 				class="projects__button"
-				href={PROJECTS_LINK.href}
+				href="/contact"
 				data-projects-link-hover
-				aria-label={PROJECTS_LINK.label}
+				aria-label={PROJECTS_LINK}
 			>
 				<span class="projects__button-mask" aria-hidden="true">
 					{
-						charsOf(PROJECTS_LINK.label).map((char) => (
+						charsOf(PROJECTS_LINK).map((char) => (
 							<span class="projects__char-col">
 								<span class="projects__char-track">
 									<span class="projects__char">{char}</span>

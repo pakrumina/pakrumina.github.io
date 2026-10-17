@@ -24,13 +24,13 @@ function charsOf(label: string) {
 			</h2>
 			<a
 				class="more__button"
-				href={BLOG_ALL_POSTS.href}
+				href="/blog"
 				data-more-link-hover
-				aria-label={BLOG_ALL_POSTS.label}
+				aria-label={BLOG_ALL_POSTS}
 			>
 				<span class="more__button-mask" aria-hidden="true">
 					{
-						charsOf(BLOG_ALL_POSTS.label).map((char) => (
+						charsOf(BLOG_ALL_POSTS).map((char) => (
 							<span class="more__char-col">
 								<span class="more__char-track">
 									<span class="more__char">{char}</span>

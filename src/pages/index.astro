@@ -1,5 +1,5 @@
 ---
-import { HERO_DESCRIPTION, HERO_KICKER, HERO_TITLE } from '../consts';
+import { HERO_DESCRIPTION, HERO_TITLE } from '../consts';
 import CtaSection from '../components/CtaSection.astro';
 import HeroSection from '../components/HeroSection.astro';
 import PartnerMarquee from '../components/PartnerMarquee.astro';
@@ -8,7 +8,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout pageTitle="Patrīcija Krūmiņa">
 	<HeroSection
-		kicker={HERO_KICKER}
 		titleLead={HERO_TITLE.lead}
 		titleMain={HERO_TITLE.main}
 		description={HERO_DESCRIPTION}

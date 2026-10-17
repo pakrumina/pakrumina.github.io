@@ -4,7 +4,6 @@ import {
 	CONTACT_EMAIL,
 	CONTACT_FIELDS,
 	CONTACT_FORM_ACTION,
-	CONTACT_FORM_DEMO_NOTE,
 	CONTACT_FORM_ERROR,
 	CONTACT_FORM_HIDDEN,
 	CONTACT_FORM_SUBMIT,
@@ -23,7 +22,8 @@ function charsOf(label: string) {
 }
 
 function socialClass(link: any) {
-	return "contact__social-face " + link.class;
+	var linkClass = link.color == 'Zils' ? 'social-blue' : 'social-black'
+	return "contact__social-face " + linkClass;
 }
 ---
 
@@ -89,10 +89,10 @@ function socialClass(link: any) {
 							<span class="contact__social-viewport">
 								<span class="contact__social-track">
 									<span class={socialClass(link)}>
-										<SocialGlyph id={link.id}/>
+										<SocialGlyph id={link.type}/>
 									</span>
 									<span class={socialClass(link)}>
-										<SocialGlyph id={link.id}/>
+										<SocialGlyph id={link.type}/>
 									</span>
 								</span>
 							</span>
@@ -109,7 +109,7 @@ function socialClass(link: any) {
 			data-contact-form
 			data-success={CONTACT_FORM_SUCCESS}
 			data-error={CONTACT_FORM_ERROR}
-			data-demo-note={formAction ? '' : CONTACT_FORM_DEMO_NOTE}
+			data-demo-note={formAction ? '' : "Demo, does not send"}
 		>
 			{
 				CONTACT_FORM_HIDDEN.map((field) => (
@@ -123,30 +123,30 @@ function socialClass(link: any) {
 
 			{
 				CONTACT_FIELDS.map((field) => (
-					<label class="contact__field" for={field.id}>
-						<span class="contact__label">{field.label}</span>
-						<input
-							class="contact__input"
-							id={field.id}
-							name={field.name}
-							type={field.type}
-							autocomplete={field.autocomplete}
-							required={field.required}
-						/>
+					<label class="contact__field" for={field.name}>
+						{field.type == "Ziņas lauks" ? (
+							<span class="contact__label">{field.label}</span>
+							<textarea
+								class="contact__input contact__input--area"
+								id={field.name}
+								name={field.name}
+								rows="5"
+								required
+							></textarea>
+						) : (
+							<span class="contact__label">{field.label}</span>
+							<input
+								class="contact__input"
+								id={field.name}
+								name={field.name}
+								type={field.type == "E-pasta lauks" ? "email" : "text"}
+								autocomplete={field.name}
+								required
+							/>
+						)}	
 					</label>
 				))
 			}
-
-			<label class="contact__field" for="message">
-				<span class="contact__label">Ziņa</span>
-				<textarea
-					class="contact__input contact__input--area"
-					id="message"
-					name="message"
-					rows="5"
-					required
-				></textarea>
-			</label>
 
 			<button
 				class="contact__submit"

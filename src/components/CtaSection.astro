@@ -23,10 +23,10 @@ function charsOf(label: string) {
 				<span class="cta__title-line">{CTA_TITLE.lead}</span>
 				<span class="cta__title-line cta__title-line--muted">{CTA_TITLE.main}</span>
 			</h2>
-			<a class="cta__button" href={CTA_LINK.href} data-cta-link-hover aria-label={CTA_LINK.label}>
+			<a class="cta__button" href="/contact" data-cta-link-hover aria-label={CTA_LINK}>
 				<span class="cta__button-mask" aria-hidden="true">
 					{
-						charsOf(CTA_LINK.label).map((char) => (
+						charsOf(CTA_LINK).map((char) => (
 							<span class="cta__char-col">
 								<span class="cta__char-track">
 									<span class="cta__char">{char}</span>

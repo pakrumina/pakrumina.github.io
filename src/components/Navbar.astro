@@ -11,6 +11,22 @@ function isActive(href: string) {
 function charsOf(label: string) {
 	return [...label];
 }
+
+function getNavHref(type: string) {
+	var href = '/';
+	switch(type) {
+		case 'Darbi':
+			href = '/projects'
+			break;
+		case 'Klade':
+			href = '/blog'
+			break;
+		case 'Sazināties':
+			href = '/contact'
+			break;
+	}
+	return href;
+}
 ---
 
 <header class="nav" data-nav>
@@ -28,8 +44,8 @@ function charsOf(label: string) {
 				{
 					NAV_LINKS_LEFT.map((link) => (
 						<a
-							class:list={['nav__link', { 'is-active': isActive(link.href) }]}
-							href={link.href}
+							class:list={['nav__link', { 'is-active': isActive(getNavHref(link.section)) }]}
+							href={getNavHref(link.section)}
 							data-nav-link
 							data-nav-hover
 							aria-label={link.label}
@@ -66,8 +82,8 @@ function charsOf(label: string) {
 				{
 					NAV_LINKS_RIGHT.map((link) => (
 						<a
-							class:list={['nav__link', { 'is-active': isActive(link.href) }]}
-							href={link.href}
+							class:list={['nav__link', { 'is-active': isActive(getNavHref(link.section)) }]}
+							href={getNavHref(link.section)}
 							data-nav-link
 							data-nav-hover
 							aria-label={link.label}
@@ -106,8 +122,8 @@ function charsOf(label: string) {
 			{
 				[...NAV_LINKS_LEFT, ...NAV_LINKS_RIGHT].map((link, index) => (
 					<a
-						class:list={['nav__menu-link', { 'is-active': isActive(link.href) }]}
-						href={link.href}
+						class:list={['nav__menu-link', { 'is-active': isActive(getNavHref(link.section)) }]}
+						href={getNavHref(link.section)}
 						data-nav-link
 						data-nav-hover
 						aria-label={link.label}

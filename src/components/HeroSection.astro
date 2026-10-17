@@ -3,13 +3,12 @@ import HeroBar from './HeroBar.astro';
 import HeroTrail from './HeroTrail.astro';
 
 interface Props {
-	kicker: string;
 	titleLead: string;
 	titleMain: string;
 	description: string;
 }
 
-const { kicker, titleLead, titleMain, description } = Astro.props;
+const { titleLead, titleMain, description } = Astro.props;
 ---
 
 <header class="hero hero-section" data-hero>

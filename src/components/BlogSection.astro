@@ -21,10 +21,10 @@ function charsOf(label: string) {
 				<span class="blog__title-lead" data-blog-reveal>{BLOG_TITLE.lead}</span>
 				<span class="blog__title-main" data-blog-reveal>{BLOG_TITLE.main}</span>
 			</h1>
-			<a class="blog__button" href={BLOG_LINK.href} data-blog-link-hover aria-label={BLOG_LINK.label}>
+			<a class="blog__button" href="/contact" data-blog-link-hover aria-label={BLOG_LINK}>
 				<span class="blog__button-mask" aria-hidden="true">
 					{
-						charsOf(BLOG_LINK.label).map((char) => (
+						charsOf(BLOG_LINK).map((char) => (
 							<span class="blog__char-col">
 								<span class="blog__char-track">
 									<span class="blog__char">{char}</span>

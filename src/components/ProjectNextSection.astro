@@ -1,5 +1,5 @@
 ---
-import { EXPLORE_NEXT_KICKER, EXPLORE_NEXT_TITLE } from '../consts';
+import { EXPLORE_NEXT_TITLE } from '../consts';
 
 interface Props {
 	name: string;
@@ -17,11 +17,6 @@ function charsOf(label: string) {
 	<div class="next__frame">
 		<div class="next__rule" aria-hidden="true"></div>
 		<div class="next__inner">
-			<p class="next__kicker">
-				<span class="next__kicker-mark" aria-hidden="true">✦</span>
-				{EXPLORE_NEXT_KICKER}
-				<span class="next__kicker-mark" aria-hidden="true">✦</span>
-			</p>
 			<h2 class="next__title">
 				<span class="next__title-lead" data-next-reveal>{EXPLORE_NEXT_TITLE.lead}</span>
 				<span class="next__title-main" data-next-reveal>{EXPLORE_NEXT_TITLE.main}</span>
