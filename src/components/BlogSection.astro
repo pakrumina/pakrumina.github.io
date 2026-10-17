@@ -16,7 +16,7 @@ function charsOf(label: string) {
 }
 
 function getAvailableCategories() {
-	const categories = availableCategoriesJson.categories.map(c => c.name);
+	const categories = [...availableCategoriesJson.categories];
 	categories.unshift("Visas");
 	return categories;
 }

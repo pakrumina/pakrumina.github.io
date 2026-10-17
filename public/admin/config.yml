@@ -66,9 +66,9 @@ collections:
         collection: "settings"
         file: "categories"
         multiple: true
-        search_fields: ["categories.*.name"]
-        value_field: "categories.*.name"
-        display_fields: ["categories.*.name"]
+        search_fields: ["categories.*"]
+        value_field: "categories.*"
+        display_fields: ["categories.*"]
       - { 
           label: "Statiska bilde pirms video", 
           name: "thumbnail", 
@@ -114,9 +114,9 @@ collections:
         collection: "settings"
         file: "categories"
         multiple: true
-        search_fields: ["categories.*.name"]
-        value_field: "categories.*.name"
-        display_fields: ["categories.*.name"]
+        search_fields: ["categories.*"]
+        value_field: "categories.*"
+        display_fields: ["categories.*"]
       - { 
           label: "Saraksta bilde", 
           name: "thumbnail", 

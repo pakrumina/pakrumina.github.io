@@ -10,7 +10,7 @@ function charsOf(label: string) {
 	return [...label].map((char) => (char === ' ' ? '\u00A0' : char));}
 
 function getAvailableCategories() {
-	const categories = availableCategoriesJson.categories.map(c => c.name);
+	const categories = [...availableCategoriesJson.categories];
 	categories.unshift("Visas");
 	return categories;
 }

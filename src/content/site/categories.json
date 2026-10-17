@@ -1,7 +1,9 @@
 {
   "categories": [
-    { "name": "Audio" },
-    { "name": "Video" },
-    { "name": "DJ Krankenwagen" }
+    "Audio",
+    "Video",
+    "DJ Krankenwagen",
+    "Bedre",
+    "Caurums"
   ]
 }

@@ -2,8 +2,8 @@
 title: Blog test
 description: Blog description
 categories:
-    - Audio
-    - Video
+  - Audio
+  - Caurums
 thumbnail: https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/WhatsApp%20Image%202026-10-06%20at%2011.34.57.jpeg
 titleImage: https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/WhatsApp%20Image%202026-10-06%20at%2011.34.57.jpeg
 ---
