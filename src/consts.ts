@@ -1,4 +1,7 @@
 import s from './content/site/settings.json';
+import heroTrail from './content/images/heroTrail.json';
+import contactRing from './content/images/contactRing.json';
+import scrollRow from './content/images/scrollRow.json';
 
 export const SITE_TITLE = s.siteTitle;
 export const SITE_DESCRIPTION = s.siteDescription;
@@ -44,46 +47,15 @@ export const FOOTER_BACK_TO_TOP = s.footerBackToTop;
 export const SOCIAL_LINKS_LEFT = s.socialLinksLeft;
 export const SOCIAL_LINKS_RIGHT = s.socialLinksRight;
 
-// Images, hidden fields and licence info stays hardcoded
-export const HERO_TRAIL_IMAGES = [
-	'/hero-trail/ķēms_iet_800x800px-01.png',
-	'/hero-trail/ķēms_iet_800x800px-02.png',
-	'/hero-trail/ķēms_iet_800x800px-03.png',
-	'/hero-trail/ķēms_iet_800x800px-04.png',
-	'/hero-trail/ķēms_iet_800x800px-05.png',
-	'/hero-trail/ķēms_iet_800x800px-06.png',
-	'/hero-trail/ķēms_iet_800x800px-07.png',
-	'/hero-trail/ķēms_iet_800x800px-08.png',
-	'/hero-trail/ķēms_iet_800x800px-09.png',
-	'/hero-trail/ķēms_iet_800x800px-10.png',
-	'/hero-trail/ķēms_iet_800x800px-11.png',
-	'/hero-trail/ķēms_iet_800x800px-12.png',
-] as const;
+export const HERO_TRAIL_IMAGES = heroTrail.images as const;
 
 
-export const CONTACT_RING_IMAGES = [
-	'/contact-ring/ķēmi_tēli_800x800px-01.png',
-	'/contact-ring/ķēmi_tēli_800x800px-02.png',
-	'/contact-ring/ķēmi_tēli_800x800px-03.png',
-	'/contact-ring/ķēmi_tēli_800x800px-04.png',
-	'/contact-ring/ķēmi_tēli_800x800px-05.png',
-	'/contact-ring/ķēmi_tēli_800x800px-06.png',
-	'/contact-ring/ķēmi_tēli_800x800px-07.png',
-	'/contact-ring/ķēmi_tēli_800x800px-08.png',
-	'/contact-ring/ķēmi_tēli_800x800px-09.png',
-	'/contact-ring/ķēmi_tēli_800x800px-10.png',
-] as const;
+export const CONTACT_RING_IMAGES = contactRing.images as const;
 
 
-export const PARTNER_LOGOS = [
-	{ src: '/partners/partner-01.svg', alt: 'Partner 01' },
-	{ src: '/partners/partner-02.svg', alt: 'Partner 02' },
-	{ src: '/partners/partner-03.svg', alt: 'Partner 03' },
-	{ src: '/partners/partner-04.svg', alt: 'Partner 04' },
-	{ src: '/partners/partner-05.svg', alt: 'Partner 05' },
-	{ src: '/partners/partner-06.svg', alt: 'Partner 06' },
-] as const;
+export const SCROLL_ROW_IMAGES = scrollRow.images as const;
 
+// Hidden fields and licence info stays hardcoded
 /**
 
  * Form endpoint for Formspree, Getform, Web3Forms, or similar.

@@ -16,6 +16,39 @@ display_url: https://YOUR_DOMAIN.com
 logo_url: https://YOUR_DOMAIN.com/favicon.svg
 
 collections:
+  - name: "images"
+    label: "Attēli"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "conctctRing"
+        label: "Ķēmu aplis"
+        file: "src/content/images/contactRing.json"
+        fields:
+          - label: "Ķēmu apļa attēli to parādīšanās secībā"
+            name: "images"
+            widget: "list"
+            collapsed: false
+            field: { label: "Attēls", name: "image", widget: "image" }
+      - name: "heroTrail"
+        label: "Ķēmu aste"
+        file: "src/content/images/heroTrail.json"
+        fields:
+          - label: "Ķēmu astes attēli to parādīšanās secībā"
+            name: "images"
+            widget: "list"
+            collapsed: false
+            field: { label: "Attēls", name: "image", widget: "image" }
+      - name: "scrollRow"
+        label: "Slīdošā lenta"
+        file: "src/content/images/scrollRow.json"
+        fields:
+          - label: "Slīdošās lentas attēli to parādīšanās secībā"
+            name: "images"
+            widget: "list"
+            collapsed: false
+            field: { label: "Attēls", name: "image", widget: "image" }
   - name: "projects"
     label: "Darbi"
     folder: "src/content/projects"

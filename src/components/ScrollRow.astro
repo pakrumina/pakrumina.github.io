@@ -1,5 +1,5 @@
 ---
-import { PARTNER_LOGOS, PARTNERS_LABEL } from '../consts';
+import { SCROLL_ROW_IMAGES, PARTNERS_LABEL } from '../consts';
 ---
 
 <div class="partners">
@@ -13,9 +13,9 @@ import { PARTNER_LOGOS, PARTNERS_LABEL } from '../consts';
 						data-partners-list={copy === 0 ? true : undefined}
 						aria-hidden={copy === 0 ? undefined : 'true'}
 					>
-						{PARTNER_LOGOS.map((logo) => (
+						{SCROLL_ROW_IMAGES.map((logo) => (
 							<li class="partners__item">
-								<img class="partners__logo" src={logo.src} alt={copy === 0 ? logo.alt : ''} />
+								<img class="partners__logo" src={logo} alt="" />
 							</li>
 						))}
 					</ul>
