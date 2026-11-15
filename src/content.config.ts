@@ -111,7 +111,7 @@ const projects = defineCollection({
 		thumbnail: z.string(),
 		titleImage: z.string(),
 		hoverVideoUrl: z.string().optional(),
-		youtubeId: z.string().optional(),
+    youtube: z.object({ youtubeId: z.string(), align: z.string().optional() }).optional(),
 		year: z.string(),
 		datetime: z.coerce.date().default(() => new Date()),
 	}),

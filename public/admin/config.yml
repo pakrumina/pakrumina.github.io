@@ -89,14 +89,39 @@ collections:
           widget: "string", 
           hint: "Video uzbraucot ar peli sarakstā (pilna adrese no R2, piemēram, https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/nice.PNG)" 
         }
-      - { 
-          label: "YouTube ID", 
-          name: "youtubeId", 
-          widget: "string",
-          hint: "Youtube video 11 simbolu ID (piemēram, dQw4w9WgXcQ)" 
-        }
+      - label: "YouTube Video"
+        name: "youtube"
+        widget: "object"
+        fields:
+        - label: "YouTube ID"
+          name: "youtubeId"
+          widget: "string"
+          hint: "Youtube video 11 simbolu ID (piemēram, dQw4w9WgXcQ)"
+        - label: "Izkārtojums"
+          name: "align"
+          widget: "select"
+          options:
+          - { label: "Visa rinda (teksts sākas pēc rindas)", value: "full" }
+          - { label: "Pa kreisi (teksts pa labi)", value: "left" }
+          - { label: "Pa labi (teksts pa kreisi)", value: "right" }
+          - { label: "Vidū (teksts sākās pēc rindas)", value: "center" }
+          default: "none"
       - { label: "Gads", name: "year", widget: "string", required: true }
-      - { label: "Saturs", name: "body", widget: "markdown", required: true }
+      - label: "Saturs"
+        name: "body"
+        widget: "markdown"
+        required: true
+        buttons:
+          - bold
+          - italic
+          - code
+          - link
+          - heading-one
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
   - name: "blogs"
     label: "Klade"
     folder: "src/content/blog"

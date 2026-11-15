@@ -14,6 +14,14 @@ const meta = [
 	{ label: 'Kategorijas', value: data.categories.join(", ") },
 	{ label: 'Gads', value: data.year },
 ];
+
+function youtubeClass(alignment: any) {
+	if (!alignment || alignment == "full") {
+		return "video-container align-full";
+	} else {
+		return "video-container align-" + alignment;
+	}
+}
 ---
 
 <article class="case" data-case>
@@ -38,54 +46,122 @@ const meta = [
 			<img class="case__image" src={data.titleImage} alt={data.title} />
 		</figure>
 
-		{data.youtubeId && (
-			<div class="video-container">
-				<div class="video-wrapper">
-				<iframe
-					src={`https://www.youtube.com/embed/${data.youtubeId}`}
-					title={`${data.title}`}
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					allowfullscreen
-				></iframe>
+		<div class="case__copy">
+			{data.youtube && (
+				<div class={youtubeClass(data.youtube.align)}>
+					<div class="video-wrapper">
+					<iframe
+						src={`https://www.youtube.com/embed/${data.youtube.youtubeId}`}
+						title={`${data.title}`}
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen
+					></iframe>
+					</div>
 				</div>
-			</div>
-		)}
-
-		<section class="case__split" aria-labelledby="case-goal-title">
-			<div class="case__copy">
-				<Content />
-			</div>
-		</section>
+			)}
+			<Content />
+		</div>
 	</div>
 </article>
 
-<style>
+<style is:global>
 	.video-container {
-		margin-top: 4.5rem;
+        width: 100%;
+    }
+
+    .video-container.align-left {
+        float: left;
+        width: 50%;
+        margin: 0.25rem 2rem 1.5rem 0;
+    }
+
+    .video-container.align-right {
+        float: right;
+        width: 50%;
+        margin: 0.25rem 0 1.5rem 2rem;
+    }
+
+	.video-container.align-center {
+        display: block;
+        margin: 2rem auto;
+        float: none;
+        max-width: 50%;
+    }
+
+    .video-container.align-full {
+        display: block;
+        margin: 2rem auto;
+        float: none;
+        max-width: 100%;
+    }
+
+
+	/* Ensure text copy spans full width and flows past floats correctly */
+    .case__copy {
+        width: 100%;
+    }
+
+    .case__copy p {
+        text-align: justify;
+        text-justify: inter-word;
+	}
+	
+	.case__copy img.align-left {
 		float: left;
-		width: 100%;
-		max-width: 50%;
-		margin-right: 2rem;
-		margin-bottom: 1.5rem;
-		margin-left: 0;
+		margin: 0.25rem 1.5rem 1rem 0;
 	}
 
-	.video-wrapper {
-		position: relative;
-		width: 100%;
-		aspect-ratio: 16 / 9;
-		border-radius: 12px;
-		overflow: hidden;
-		background-color: #000;
-		box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+	.case__copy img.align-right {
+		float: right;
+		margin: 0.25rem 0 1rem 1.5rem;
 	}
 
-	.video-wrapper iframe {
-		width: 100%;
-		height: 100%;
-		border: 0;
+	.case__copy img.align-center {
 		display: block;
+		margin: 1.5rem auto;
 	}
+
+    /* Clearfix so subsequent sections don't break under the float */
+    .case__copy::after,
+    .case__inner::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .case__copy h2,
+    .case__copy h3 {
+        clear: both;
+    }
+
+    /* Mobile responsive override */
+    @media (max-width: 640px) {
+        .video-container.align-left,
+        .video-container.align-right {
+            float: none;
+            width: 100% !important;
+            margin: 1.5rem auto;
+        }
+    }
+</style>
+
+<style>
+	.video-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: #000;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+    }
 
 	.content-wrapper::after {
 		content: "";
@@ -216,7 +292,6 @@ const meta = [
 	}
 
 	.case__copy {
-		display: flex;
 		flex-direction: column;
 		gap: 1.15rem;
 		min-width: 0;
@@ -289,10 +364,6 @@ const meta = [
 	}
 
 	@media (min-width: 48rem) {
-		.video-container {
-			margin-top: 2rem;
-		}
-
 		.case {
 			padding-block: 9rem 0;
 		}
@@ -372,10 +443,6 @@ const meta = [
 	}
 
 	@media (min-width: 64rem) {
-		.video-container {
-			margin-top: 4rem;
-		}
-
 		.case {
 			padding-block: 10rem 0;
 		}
