@@ -19,6 +19,56 @@
     <!-- Load Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
+    <!-- Register your custom component immediately after -->
+    <script>
+      CMS.registerEditorComponent({
+        id: "image",
+        label: "Image",
+        fields: [
+          { name: "src", label: "Attēls", widget: "image" },
+          { name: "alt", label: "Teksts (rādās uzlaižot peli)", widget: "string" },
+          { name: "width", label: "Platums (pikseļos vai procentos)", widget: "string", default: "300" },
+          { name: "height", label: "Augstums (var nebūt)", widget: "string", required: false },
+          {
+            name: "align",
+            label: "Izkārtojums",
+            widget: "select",
+            options: [
+              { label: "Visa rinda (teksts sākas pēc rindas)", value: "none" },
+              { label: "Pa kreisi (teksts pa labi)", value: "left" },
+              { label: "Pa labi (teksts pa kreisi)", value: "right" },
+              { label: "Vidū (teksts sākās pēc rindas)", value: "center" },
+            ],
+            default: "none",
+          },
+        ],
+        pattern: /^<img src="([^"]*)" alt="([^"]*)"(?: width="([^"]*)")?(?: height="([^"]*)")?(?: class="align-([^"]*)")?\s*\/?>$/,
+        fromBlock: function (match) {
+          return {
+            src: match[1],
+            alt: match[2],
+            width: match[3] || "",
+            height: match[4] || "",
+            align: match[5] || "none",
+          };
+        },
+        toBlock: function (data) {
+          const widthAttr = data.width ? ` width="${data.width}"` : "";
+          const heightAttr = data.height ? ` height="${data.height}"` : "";
+          const classAttr = data.align && data.align !== "none" ? ` class="align-${data.align}"` : "";
+          return `<img src="${data.src || ""}" alt="${data.alt || ""}"${widthAttr}${heightAttr}${classAttr} />`;
+        },
+        toPreview: function (data) {
+          const widthAttr = data.width ? ` width="${data.width}"` : "";
+          const heightAttr = data.height ? ` height="${data.height}"` : "";
+          let style = "";
+          if (data.align === "left") style = ' style="float: left; margin: 0 1.5rem 1rem 0;"';
+          if (data.align === "right") style = ' style="float: right; margin: 0 0 1rem 1.5rem;"';
+          if (data.align === "center") style = ' style="display: block; margin: 1.5rem auto;"';
+          return `<img src="${data.src || ""}" alt="${data.alt || ""}"${widthAttr}${heightAttr}${style} />`;
+        },
+      });
+    </script>
     <!-- Execute manual init on localhost if local_backend proxy is running -->
     <script>
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {

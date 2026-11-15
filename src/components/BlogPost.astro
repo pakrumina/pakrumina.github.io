@@ -43,6 +43,50 @@ const meta = [
 	</div>
 </article>
 
+<style is:global>
+	.post__body p {
+		text-align: justify;
+		text-justify: inter-word;
+	}
+
+	.post__body img.align-left {
+		float: left;
+		margin: 0.25rem 1.5rem 1rem 0;
+	}
+
+	.post__body img.align-right {
+		float: right;
+		margin: 0.25rem 0 1rem 1.5rem;
+	}
+
+	.post__body img.align-center {
+		display: block;
+		margin: 1.5rem auto;
+	}
+
+	.post__body::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	.post__body h2,
+	.post__body h3 {
+		clear: both;
+	}
+
+	/* Optional: Stop floating on narrow mobile screens so text isn't squished */
+	@media (max-width: 640px) {
+		.post__body img.align-left,
+		.post__body img.align-right {
+			float: none;
+			display: block;
+			margin: 1rem auto;
+			width: 100%;
+			height: auto;
+		}
+	}
+</style>
 <style>
 	.post {
 		width: 100%;
@@ -162,7 +206,7 @@ const meta = [
 	}
 
 	.post__body {
-		max-width: 56rem;
+		max-width: 100%;
 		margin: 3rem auto 0;
 		color: var(--color-muted);
 		font-family: var(--font-sans);

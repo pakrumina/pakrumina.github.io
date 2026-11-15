@@ -131,7 +131,21 @@ collections:
           required: true,
           hint: "Bilde, ko pirmo rāda atverot blogu (pilna adrese no R2, piemēram, https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/nice.PNG)" 
         }
-      - { label: "Saturs", name: "body", widget: "markdown", required: true }
+      - label: "Saturs"
+        name: "body"
+        widget: "markdown"
+        required: true
+        buttons:
+          - bold
+          - italic
+          - code
+          - link
+          - heading-one
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
   - name: "settings"
     label: "Lapas uzstādījumi"
     delete: false
