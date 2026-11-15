@@ -1,0 +1,34 @@
+{
+  "contactFormError": "Lūdzu, pārbaudi laukus un mēģini vēlreiz",
+  "contactFormHidden": [],
+  "contactTitle": {
+    "lead": "Uzraksti",
+    "main": "Man"
+  },
+  "contactFields": [
+    {
+      "name": "name",
+      "label": "Vārds",
+      "type": "Parasts lauks"
+    },
+    {
+      "name": "email",
+      "label": "E-pasta adrese",
+      "type": "E-pasta lauks"
+    },
+    {
+      "name": "subject",
+      "label": "Tēma",
+      "type": "Parasts lauks"
+    },
+    {
+      "name": "message",
+      "label": "Ziņa",
+      "type": "Ziņas lauks"
+    }
+  ],
+  "contactFormSubmit": "Nosūtīt ziņu",
+  "contactEmail": "patricija@noname.lv",
+  "contactDescription": "Sazinies ar mani par idejām un projektiem, kas Tev ir padomā",
+  "contactFormSuccess": "Paldies, ziņa nosūtīta veiksmīgi."
+}

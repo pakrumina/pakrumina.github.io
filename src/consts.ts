@@ -1,51 +1,54 @@
-import s from './content/site/settings.json';
+import blog from './content/site/blog.json';
+import contacts from './content/site/contacts.json';
+import cta from './content/site/cta.json';
+import footer from './content/site/footer.json';
+import hero from './content/site/hero.json';
+import metadata from './content/site/metadata.json';
+import navigation from './content/site/navigation.json';
+import projects from './content/site/projects.json';
+import socialMedia from './content/site/socialMedia.json';
 import heroTrail from './content/images/heroTrail.json';
 import contactRing from './content/images/contactRing.json';
 import scrollRow from './content/images/scrollRow.json';
 
-export const SITE_TITLE = s.siteTitle;
-export const SITE_DESCRIPTION = s.siteDescription;
-export const CONTACT_EMAIL = s.contactEmail;
+export const SITE_TITLE = metadata.siteTitle;
+export const SITE_DESCRIPTION = metadata.siteDescription;
 
-export const CONTACT_TITLE = s.contactTitle;
-export const CONTACT_DESCRIPTION = s.contactDescription;
+export const CONTACT_EMAIL = contacts.contactEmail;
+export const CONTACT_TITLE = contacts.contactTitle;
+export const CONTACT_DESCRIPTION = contacts.contactDescription;
+export const CONTACT_FORM_SUBMIT = contacts.contactFormSubmit;
+export const CONTACT_FORM_SUCCESS = contacts.contactFormSuccess;
+export const CONTACT_FORM_ERROR = contacts.contactFormError;
+export const CONTACT_FIELDS = contacts.contactFields;
 
-export const CONTACT_FORM_SUBMIT = s.contactFormSubmit;
-export const CONTACT_FORM_SUCCESS = s.contactFormSuccess;
-export const CONTACT_FORM_ERROR = s.contactFormError;
+export const HERO_TITLE = hero.heroTitle;
+export const HERO_DESCRIPTION = hero.heroDescription;
+export const PARTNERS_LABEL = hero.partnersLabel;
 
-export const CONTACT_FIELDS = s.contactFields;
+export const PROJECTS_TITLE = projects.projectsTitle;
+export const PROJECTS_LINK = projects.projectsLink;
+export const EXPLORE_NEXT_TITLE = projects.exploreNextTitle;
 
-export const HERO_TITLE = s.heroTitle;
-export const HERO_DESCRIPTION = s.heroDescription;
+export const BLOG_TITLE = blog.blogTitle;
+export const BLOG_DESCRIPTION = blog.blogDescription;
+export const BLOG_LINK = blog.blogLink;
+export const BLOG_READ_MORE_TITLE = blog.blogReadMoreTitle;
+export const BLOG_ALL_POSTS = blog.blogAllPosts;
 
-export const PROJECTS_TITLE = s.projectsTitle;
-export const PROJECTS_LINK = s.projectsLink;
+export const CTA_TITLE = cta.ctaTitle;
+export const CTA_LINK = cta.ctaLink;
 
-export const BLOG_TITLE = s.blogTitle;
-export const BLOG_DESCRIPTION = s.blogDescription;
-export const BLOG_LINK = s.blogLink;
-export const BLOG_READ_MORE_TITLE = s.blogReadMoreTitle;
-export const BLOG_ALL_POSTS = s.blogAllPosts;
+export const NAV_LINKS_LEFT = navigation.navLinksLeft;
+export const NAV_LINKS_RIGHT = navigation.navLinksRight;
 
-export const EXPLORE_NEXT_TITLE = s.exploreNextTitle;
+export const FOOTER_HEADLINE = footer.footerHeadline;
+export const FOOTER_LARGE_TEXT = footer.footerLargeText;
+export const FOOTER_BRAND = footer.footerBrand;
+export const FOOTER_BACK_TO_TOP = footer.footerBackToTop;
 
-export const CTA_TITLE = s.ctaTitle;
-export const CTA_LINK = s.ctaLink;
-
-export const PARTNERS_LABEL = s.partnersLabel;
-
-export const NAV_LINKS_LEFT = s.navLinksLeft;
-export const NAV_LINKS_RIGHT = s.navLinksRight;
-
-export const FOOTER_HEADLINE = s.footerHeadline;
-export const FOOTER_LARGE_TEXT = s.footerLargeText;
-export const FOOTER_BRAND = s.footerBrand;
-
-export const FOOTER_BACK_TO_TOP = s.footerBackToTop;
-
-export const SOCIAL_LINKS_LEFT = s.socialLinksLeft;
-export const SOCIAL_LINKS_RIGHT = s.socialLinksRight;
+export const SOCIAL_LINKS_LEFT = socialMedia.socialLinksLeft;
+export const SOCIAL_LINKS_RIGHT = socialMedia.socialLinksRight;
 
 export const HERO_TRAIL_IMAGES = heroTrail.images as const;
 

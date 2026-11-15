@@ -1,0 +1,31 @@
+{
+  "socialLinksRight": [
+    {
+      "href": "https://www.youtube.com/@pakrumina",
+      "label": "Youtube Patrīcija Krūmiņa",
+      "type": "Youtube",
+      "color": "Melns"
+    },
+    {
+      "href": "https://www.youtube.com/@bedrebedrebedrebedre",
+      "label": "Youtube Bedre",
+      "type": "Youtube",
+      "color": "Zils"
+    }
+  ],
+  "socialLinksLeft": [
+    {
+      "href": "https://instagram.com/pakrumina",
+      "label": "Instagram Patrīcija Krūmiņa",
+      "type": "Instagram",
+      "class": "Melns",
+      "color": "Melns"
+    },
+    {
+      "href": "https://instagram.com/bedrebedrebedrebedre",
+      "label": "Instagram Bedre",
+      "type": "Instagram",
+      "color": "Zils"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "navLinksRight": [
+    {
+      "section": "Klade",
+      "label": "Klade"
+    },
+    {
+      "section": "Sazināties",
+      "label": "Sazināties"
+    }
+  ],
+  "navLinksLeft": [
+    {
+      "section": "Sākums",
+      "label": "Sākums"
+    },
+    {
+      "section": "Darbi",
+      "label": "Darbi"
+    }
+  ]
+}

@@ -68,17 +68,17 @@ const siteCollection = defineCollection({
     ctaLink: z.string(),
     partnersLabel: z.string(),
     navLinksLeft: z.array(
-		z.object({ 
-			section: z.enum(['Sākums', 'Darbi', 'Klade', 'Sazināties']), 
-			label: z.string() 
-		})
-	),
+		  z.object({ 
+			  section: z.enum(['Sākums', 'Darbi', 'Klade', 'Sazināties']), 
+			   label: z.string() 
+		    })
+	    ),
     navLinksRight: z.array(
-		z.object({ 
-			section: z.enum(['Sākums', 'Darbi', 'Klade', 'Sazināties']), 
-			label: z.string()
-		})
-	),
+		  z.object({ 
+			  section: z.enum(['Sākums', 'Darbi', 'Klade', 'Sazināties']), 
+			  label: z.string()
+		  })
+	  ),
     footerHeadline: z.object({ lead: z.string(), muted: z.string().optional() }),
     footerLargeText: z.string(),
     footerBrand: z.string(),

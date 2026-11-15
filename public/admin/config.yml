@@ -137,57 +137,12 @@ collections:
     delete: false
     editor:
       preview: false
+    sortable_fields: ["name", "label"]
     files:
-      - name: "categories"
-        label: "Kategorijas"
-        file: "src/content/site/categories.json"
+      - name: "projects"
+        label: "Darbu sadaļa"
+        file: "src/content/site/projects.json"
         fields:
-          - label: "Kategoriju sarakstā pieejamās kategorijas"
-            name: "categories"
-            widget: "list"
-            collapsed: false
-            summary: "{{fields.name}}"
-            field: { label: "Category", name: "name", widget: "string" }
-      - name: "constants"
-        label: "Visi lapā atrodamie teksti"
-        file: "src/content/site/settings.json"
-        fields:
-          # Site Identity
-          - { label: "Visas lapas virsraksts", name: "siteTitle", hint: "Parādās pārlūka augšā un sūtot saites", widget: "string" }
-          - { label: "Visas lapas apraksts", name: "siteDescription", hint: "Parādās pārlūka augšā un sūtot saites", widget: "string" }
-          - { label: "E-pasts saziņai", name: "contactEmail", widget: "string" }
-
-          # Hero Section
-          - label: "Pirmās lapas virsraksts"
-            name: "heroTitle"
-            widget: "object"
-            fields:
-              - { label: "Melnā daļa", name: "lead", widget: "string" }
-              - { label: "Pelēkā daļa (var nebūt)", name: "main", widget: "string" }
-          - { label: "Mazais teksts", name: "heroDescription", widget: "string" }
-
-          # Contact Page / Section
-          - label: "Kontaktēšanas virsraksts"
-            name: "contactTitle"
-            widget: "object"
-            fields:
-              - { label: "Melnā daļa", name: "lead", widget: "string" }
-              - { label: "Pelēkā daļa (var nebūt)", name: "main", widget: "string" }
-          - { label: "Apraksts", name: "contactDescription", widget: "string" }
-          - { label: "Pogas teksts", name: "contactFormSubmit", widget: "string" }
-          - { label: "Veiksmīga sūtījuma teksts", name: "contactFormSuccess", hint: "Parādās, ja e-pasts nosūtās", widget: "string" }
-          - { label: "Neveiksmīga sūtījuma teksts", name: "contactFormError", hint: "Parādās, ja e-pasts nenosūtās", widget: "string" }
-
-          - label: "Kontaktēšanās ievades virsraksti"
-            name: "contactFields"
-            widget: "list"
-            min: 4
-            max: 4
-            fields:
-              - { label: "Lauka tehniskais nosaukums (NEAIZTIKT!!)", name: "name", widget: "string", hint: "Neaiztikt, ja negribās salauzt sistēmu, diemžēl nav šeit iespējams to padarīt nelabojamu" }
-              - { label: "Lauka nosaukums", name: "label", widget: "string" }
-              - { label: "Tips", name: "type", widget: "select", options: [ "Parasts lauks", "E-pasta lauks", "Ziņas lauks" ]  }
-          # Projects Section
           - label: "Darbu sadaļas virsraksts"
             name: "projectsTitle"
             widget: "object"
@@ -197,8 +152,52 @@ collections:
           - label: "Projekta saites uz kontaktiem pogas teksts"
             name: "projectsLink"
             widget: "string"
-
-          # Blog Section
+          - label: "Nākamā darba virsraksts"
+            name: "exploreNextTitle"
+            widget: "object"
+            fields:
+              - { label: "Melnā daļa", name: "lead", widget: "string" }
+              - { label: "Main", name: "main", widget: "string" }
+      - name: "categories"
+        label: "Kategorijas"
+        file: "src/content/site/categories.json"
+        fields:
+          - label: "Pieejamās kategorijas"
+            name: "categories"
+            widget: "list"
+            collapsed: false
+            summary: "{{fields.name}}"
+            field: { label: "Category", name: "name", widget: "string" }
+      - name: "footer"
+        label: "Kājene"
+        file: "src/content/site/footer.json"
+        fields:
+          - label: "Apakšas virsraksts"
+            name: "footerHeadline"
+            widget: "object"
+            fields:
+              - { label: "Melnā daļa", name: "lead", widget: "string" }
+              - { label: "Pelēkā daļa (var nebūt)", name: "muted", widget: "string" }
+          - { label: "Apakšas lielais, skrollējošais teksts", name: "footerLargeText", widget: "string" }
+          - { label: "Apakšas mazais tekstiņš", name: "footerBrand", widget: "string" }
+          - { label: "Apakšas atpakaļ uz augšu teksts", name: "footerBackToTop", widget: "string" }
+      - name: "cta"
+        label: "Ķēmu aplis"
+        file: "src/content/site/cta.json"
+        fields:
+         - label: "Ķēmu apļa virsraksts"
+           name: "footerHeadline"
+           widget: "object"
+           fields:
+              - { label: "Melnā daļa", name: "lead", widget: "string" }
+              - { label: "Pelēkā daļa (var nebūt)", name: "main", widget: "string" }
+         - label: "Ķēmu apļa pogas teksts"
+           name: "ctaLink"
+           widget: "string"
+      - name: "blog"
+        label: "Klades sadaļa"
+        file: "src/content/site/blog.json"
+        fields:
           - label: "Klades virsraksts"
             name: "blogTitle"
             widget: "object"
@@ -218,54 +217,75 @@ collections:
           - label: "Klades visu ierakstu pogas teksts"
             name: "blogAllPosts"
             widget: "string"
-
-          # Explore Next & Call To Action
-          - label: "Nākamā darba virsraksts"
-            name: "exploreNextTitle"
-            widget: "object"
-            fields:
-              - { label: "Melnā daļa", name: "lead", widget: "string" }
-              - { label: "Main", name: "main", widget: "string" }
-          - label: "Ķēmu apļa virsraksts"
-            name: "ctaTitle"
+      - name: "contacts"
+        label: "Kontaktinformācija"
+        file: "src/content/site/contacts.json"
+        fields:
+          - label: "Kontaktēšanas virsraksts"
+            name: "contactTitle"
             widget: "object"
             fields:
               - { label: "Melnā daļa", name: "lead", widget: "string" }
               - { label: "Pelēkā daļa (var nebūt)", name: "main", widget: "string" }
-          - label: "Ķēmu apļa pogas teksts"
-            name: "ctaLink"
-            widget: "string"
-
-          # Navigation
+          - { label: "E-pasts saziņai", name: "contactEmail", widget: "string" }
+          - { label: "Apraksts", name: "contactDescription", widget: "string" }
+          - { label: "Pogas teksts", name: "contactFormSubmit", widget: "string" }
+          - { label: "Veiksmīga sūtījuma teksts", name: "contactFormSuccess", hint: "Parādās, ja e-pasts nosūtās", widget: "string" }
+          - { label: "Neveiksmīga sūtījuma teksts", name: "contactFormError", hint: "Parādās, ja e-pasts nenosūtās", widget: "string" }
+          - label: "Kontaktēšanās ievades virsraksti"
+            name: "contactFields"
+            widget: "list"
+            min: 4
+            max: 4
+            collapsed: false
+            fields:
+              - { label: "Lauka tehniskais nosaukums (NEAIZTIKT!!)", name: "name", widget: "string", hint: "Neaiztikt, ja negribās salauzt sistēmu, diemžēl nav šeit iespējams to padarīt nelabojamu" }
+              - { label: "Lauka nosaukums", name: "label", widget: "string" }
+              - { label: "Tips", name: "type", widget: "select", options: [ "Parasts lauks", "E-pasta lauks", "Ziņas lauks" ]  }
+      - name: "metadata"
+        label: "Lapas pamatinformācija"
+        file: "src/content/site/metadata.json"
+        fields:
+          - { label: "Visas lapas virsraksts", name: "siteTitle", hint: "Parādās pārlūka augšā un sūtot saites", widget: "string" }
+          - { label: "Visas lapas apraksts", name: "siteDescription", hint: "Parādās pārlūka augšā un sūtot saites", widget: "string" }
+      - name: "navigation"
+        label: "Navigācija"
+        file: "src/content/site/navigation.json"
+        fields:
           - label: "Pogas labajā pusē"
             name: "navLinksLeft"
             widget: "list"
+            collapsed: false
             fields:
               - { label: "Sadaļa", name: "section", widget: "select", options: [ "Sākums", "Darbi", "Klade", "Sazināties" ] }
               - { label: "Virsraksts", name: "label", widget: "string" }
           - label: "Pogas kreisajā pusē"
             name: "navLinksRight"
             widget: "list"
+            collapsed: false
             fields:
               - { label: "Sadaļa", name: "section", widget: "select", options: [ "Sākums", "Darbi", "Klade", "Sazināties" ] }
               - { label: "Virsraksts", name: "label", widget: "string" }
-
-          # Footer
-          - label: "Apakšas virsraksts"
-            name: "footerHeadline"
+      - name: "hero"
+        label: "Pirmā lapa"
+        file: "src/content/site/hero.json"
+        fields:
+          - label: "Pirmās lapas virsraksts"
+            name: "heroTitle"
             widget: "object"
             fields:
               - { label: "Melnā daļa", name: "lead", widget: "string" }
-              - { label: "Pelēkā daļa (var nebūt)", name: "muted", widget: "string" }
-          - { label: "Apakšas lielais, skrollējošais teksts", name: "footerLargeText", widget: "string" }
-          - { label: "Apakšas mazais tekstiņš", name: "footerBrand", widget: "string" }
-          - { label: "Apakšas atpakaļ uz augšu teksts", name: "footerBackToTop", widget: "string" }
-
-
-          # Social Links
+              - { label: "Pelēkā daļa (var nebūt)", name: "main", widget: "string" }
+          - { label: "Mazais teksts", name: "heroDescription", widget: "string" }
+          - { label: "Slīdšās lentas virsraksts", name: "partnersLabel", widget: "string" }
+      - name: "socialMedia"
+        label: "Sociālie mediji"
+        file: "src/content/site/socialMedia.json"
+        fields:
           - label: "Sociālo mediju saites pa kreisi"
             name: "socialLinksLeft"
             widget: "list"
+            collapsed: false
             fields:
               - { label: "Saite", name: "href", widget: "string" }
               - { label: "Teksts", name: "label", widget: "string" }
@@ -274,6 +294,7 @@ collections:
           - label: "Sociālo mediju saites pa labi"
             name: "socialLinksRight"
             widget: "list"
+            collapsed: false
             fields:
               - { label: "Saite", name: "href", widget: "string" }
               - { label: "Teksts", name: "label", widget: "string" }
