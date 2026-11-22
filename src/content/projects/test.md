@@ -10,7 +10,7 @@ titleImage: https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/pazudis.jpg
 hoverVideoUrl: https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/pazudis.mp4
 youtube:
   youtubeId: dQw4w9WgXcQ
-  align: center
+  align: left
 year: "2026"
 youtubeId: Se1wmzn5Qi8
 youtube_video:

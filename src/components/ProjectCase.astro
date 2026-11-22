@@ -195,7 +195,7 @@ function youtubeClass(alignment: any) {
 		color: var(--color-fg);
 		font-family: var(--font-sans);
 		font-weight: 600;
-		font-size: 4.125rem;
+		font-size: 3rem;
 		line-height: 0.95;
 		letter-spacing: -0.08rem;
 		text-align: left;
@@ -212,7 +212,7 @@ function youtubeClass(alignment: any) {
 		color: var(--color-muted);
 		font-family: var(--font-sans);
 		font-weight: 400;
-		font-size: 0.9375rem;
+		font-size: 1rem;
 		line-height: 1.55;
 		letter-spacing: -0.01rem;
 		text-align: left;
@@ -247,7 +247,7 @@ function youtubeClass(alignment: any) {
 	.case__meta-label {
 		color: var(--color-bg);
 		font-weight: 500;
-		font-size: 0.75rem;
+		font-size: 1rem;
 		line-height: 1.2;
 		letter-spacing: -0.01rem;
 	}
@@ -363,6 +363,13 @@ function youtubeClass(alignment: any) {
 		aspect-ratio: 3 / 2;
 	}
 
+	@media (max-width: 48rem) {
+		.video-container.align-left, .video-container.align-right, .video-container.align-center {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
 	@media (min-width: 48rem) {
 		.case {
 			padding-block: 9rem 0;
@@ -380,13 +387,13 @@ function youtubeClass(alignment: any) {
 		}
 
 		.case__title {
-			font-size: 6.5rem;
+			font-size: 3.5rem;
 			letter-spacing: -0.16rem;
 		}
 
 		.case__summary {
 			flex: 0 1 28rem;
-			font-size: 1rem;
+			font-size: 1.25rem;
 		}
 
 		.case__meta {
@@ -452,14 +459,14 @@ function youtubeClass(alignment: any) {
 		}
 
 		.case__title {
-			font-size: 8.75rem;
+			font-size: 5rem;
 			letter-spacing: -0.24rem;
 		}
 
 		.case__summary {
 			flex-basis: 32rem;
 			max-width: 32rem;
-			font-size: 1.0625rem;
+			font-size: 1.5rem;
 		}
 
 		.case__meta-item {
