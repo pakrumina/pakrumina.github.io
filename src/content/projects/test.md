@@ -1,6 +1,6 @@
 ---
 title: Kur agrāk skrēja degunradži, tagad izauguši dadži
-description: Kur agrāk skrēja degunradži, tagad izauguši dadži
+description: Kur agrāk skrēja degunradži, tagad izauguši dadži2
 categories:
   - Audio
   - Video
@@ -24,7 +24,7 @@ virumque fores, et. Negari tamen aequora nimium, crepitantia Lemnos stagnumque
 laticesque imago. Forma loquax prosilit tamen Eurystheus mirum **Scythiae**
 Neritius servare uberrima clades?
 
-<img src="https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/pazudis.jpg" alt="Tekstiņš" width="50%" class="align-right" />
+<img src="https://pub-26bfcff37ae04453971e2b741c9a34be.r2.dev/pazudis.jpg" alt="Tekstiņš" width="50%" class="embedded-image align-right" />
 
 Auro munera quibus! Nisi cum auguris verba illic tinguatur verba ut Meleagre,
 oculos. Nil `gbps_address` gravi grave tantis Cytherea rerum, ego annoso
@@ -61,6 +61,3 @@ solet figuram quoque inscius media, Delphos `flash`. Vacuas parvumque et
 exposcere illi est quid, arbore pectus proxima `whitelist_infringement_cable`
 sic longis ramis spectare pericli venientis conceperat. Loco cura non **secus**,
 solacia secutus Cephalus e potest gener, avi **madefactam**.
-
-<img src="" alt="" width="600" />
-

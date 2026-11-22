@@ -42,7 +42,7 @@
             default: "none",
           },
         ],
-        pattern: /^<img src="([^"]*)" alt="([^"]*)"(?: width="([^"]*)")?(?: height="([^"]*)")?(?: class="align-([^"]*)")?\s*\/?>$/,
+        pattern: /^<img src="([^"]*)" alt="([^"]*)"(?: width="([^"]*)")?(?: height="([^"]*)")?(?: class="embedded-image align-([^"]*)")?\s*\/?>$/,
         fromBlock: function (match) {
           return {
             src: match[1],
@@ -55,7 +55,7 @@
         toBlock: function (data) {
           const widthAttr = data.width ? ` width="${data.width}"` : "";
           const heightAttr = data.height ? ` height="${data.height}"` : "";
-          const classAttr = data.align && data.align !== "none" ? ` class="align-${data.align}"` : "";
+          const classAttr = data.align && data.align !== "none" ? ` class="embedded-image align-${data.align}"` : ` class="embedded-image"`;
           return `<img src="${data.src || ""}" alt="${data.alt || ""}"${widthAttr}${heightAttr}${classAttr} />`;
         },
         toPreview: function (data) {
