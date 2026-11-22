@@ -27,12 +27,10 @@ export const HERO_DESCRIPTION = hero.heroDescription;
 export const PARTNERS_LABEL = hero.partnersLabel;
 
 export const PROJECTS_TITLE = projects.projectsTitle;
-export const PROJECTS_LINK = projects.projectsLink;
 export const EXPLORE_NEXT_TITLE = projects.exploreNextTitle;
 
 export const BLOG_TITLE = blog.blogTitle;
 export const BLOG_DESCRIPTION = blog.blogDescription;
-export const BLOG_LINK = blog.blogLink;
 export const BLOG_READ_MORE_TITLE = blog.blogReadMoreTitle;
 export const BLOG_ALL_POSTS = blog.blogAllPosts;
 

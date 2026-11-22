@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BlogSection from '../../components/BlogSection.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaSection from '../../components/CtaSection.astro';
 import { BLOG_DESCRIPTION } from '../../consts';
 
 const posts = (await getCollection('blog')).sort(
@@ -11,4 +12,5 @@ const posts = (await getCollection('blog')).sort(
 
 <BaseLayout title="Blog" description={BLOG_DESCRIPTION}>
 	<BlogSection posts={posts} />
+	<CtaSection />
 </BaseLayout>

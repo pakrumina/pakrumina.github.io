@@ -188,9 +188,6 @@ collections:
             fields:
               - { label: "Melnā daļa", name: "lead", widget: "string" }
               - { label: "Pelēkā daļa (var nebūt)", name: "main", widget: "string" }
-          - label: "Projekta saites uz kontaktiem pogas teksts"
-            name: "projectsLink"
-            widget: "string"
           - label: "Nākamā darba virsraksts"
             name: "exploreNextTitle"
             widget: "object"
@@ -244,9 +241,6 @@ collections:
               - { label: "Melnā daļa", name: "lead", widget: "string" }
               - { label: "Pelēkā daļa (var nebūt)", name: "main", widget: "string" }
           - { label: "Klades apraksts", name: "blogDescription", widget: "string" }
-          - label: "Blog Link"
-            name: "blogLink"
-            widget: "string"
           - label: "Klades citu ierakstu sadaļas virsraksts"
             name: "blogReadMoreTitle"
             widget: "object"

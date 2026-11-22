@@ -1,5 +1,5 @@
 ---
-import { PROJECTS_LINK, PROJECTS_TITLE } from '../consts';
+import { PROJECTS_TITLE } from '../consts';
 import WorksGrid from './WorksGrid.astro';
 
 function charsOf(label: string) {
@@ -12,27 +12,9 @@ function charsOf(label: string) {
 		<header class="projects__header">
 			<h1 class="projects__title">
 				<span class="projects__title-lead" data-projects-reveal>{PROJECTS_TITLE.lead}</span>
+				<span class="projects__title-space" data-blog-reveal> </span>
 				<span class="projects__title-main" data-projects-reveal>{PROJECTS_TITLE.main}</span>
 			</h1>
-			<a
-				class="projects__button"
-				href="/contact"
-				data-projects-link-hover
-				aria-label={PROJECTS_LINK}
-			>
-				<span class="projects__button-mask" aria-hidden="true">
-					{
-						charsOf(PROJECTS_LINK).map((char) => (
-							<span class="projects__char-col">
-								<span class="projects__char-track">
-									<span class="projects__char">{char}</span>
-									<span class="projects__char">{char}</span>
-								</span>
-							</span>
-						))
-					}
-				</span>
-			</a>
 		</header>
 
 		<WorksGrid />
@@ -62,7 +44,7 @@ function charsOf(label: string) {
 
 	.projects__title {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		margin: 0;
 		min-width: 0;
 		color: var(--color-fg);
@@ -71,6 +53,10 @@ function charsOf(label: string) {
 		font-size: 3rem;
 		line-height: 0.95;
 		letter-spacing: -0.06rem;
+	}
+
+	.projects__title-space {
+		white-space: pre;
 	}
 
 	.projects__title-main {

@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { BLOG_LINK, BLOG_TITLE } from '../consts';
+import { BLOG_TITLE } from '../consts';
 import BlogCard from './BlogCard.astro';
 import availableCategoriesJson from '../content/site/categories.json';
 
@@ -31,22 +31,9 @@ function isDefaultActive(cat: string) {
 		<header class="blog__header">
 			<h1 class="blog__title">
 				<span class="blog__title-lead" data-blog-reveal>{BLOG_TITLE.lead}</span>
+				<span class="blog__title-space" data-blog-reveal> </span>
 				<span class="blog__title-main" data-blog-reveal>{BLOG_TITLE.main}</span>
 			</h1>
-			<a class="blog__button" href="/contact" data-blog-link-hover aria-label={BLOG_LINK}>
-				<span class="blog__button-mask" aria-hidden="true">
-					{
-						charsOf(BLOG_LINK).map((char) => (
-							<span class="blog__char-col">
-								<span class="blog__char-track">
-									<span class="blog__char">{char}</span>
-									<span class="blog__char">{char}</span>
-								</span>
-							</span>
-						))
-					}
-				</span>
-			</a>
 		</header>
 		<div class="category-filter" data-category-filter>
 			{availableCategories.map((cat) => (
@@ -286,7 +273,7 @@ import gsap from 'gsap';
 
 	.blog__title {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		margin: 0;
 		min-width: 0;
 		color: var(--color-fg);
@@ -295,6 +282,10 @@ import gsap from 'gsap';
 		font-size: 3rem;
 		line-height: 0.95;
 		letter-spacing: -0.06rem;
+	}
+
+	.blog__title-space {
+		white-space: pre;
 	}
 
 	.blog__title-main {
