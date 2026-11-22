@@ -17,13 +17,15 @@ import SocialGlyph from './SocialGlyph.astro';
 const socialLinks = [...SOCIAL_LINKS_LEFT, ...SOCIAL_LINKS_RIGHT];
 const formAction = CONTACT_FORM_ACTION.trim();
 
+const [emailUser = '', emailHost = ''] = CONTACT_EMAIL.split('@');
+
 function charsOf(label: string) {
 	return [...label].map((char) => (char === ' ' ? '\u00A0' : char));
 }
 
 function socialClass(link: any) {
-	var linkClass = link.color == 'Zils' ? 'social-blue' : 'social-black'
-	return "contact__social-face " + linkClass;
+	var linkClass = link.color == 'Zils' ? 'social-blue' : 'social-black';
+	return 'contact__social-face ' + linkClass;
 }
 ---
 
@@ -38,34 +40,37 @@ function socialClass(link: any) {
 			<div class="contact__methods">
 				<a
 					class="contact__info"
-					href={`mailto:${CONTACT_EMAIL}`}
+					href="#contact"
+					data-contact-email
+					data-email-user={emailUser}
+					data-email-host={emailHost}
 					data-contact-info-hover
-					aria-label={`Email ${CONTACT_EMAIL}`}
+					aria-label="Email"
 				>
-					<span class="contact__info-icon" aria-hidden="true">
-						<svg viewBox="0 0 24 24" fill="none">
-							<rect
-								x="3.75"
-								y="5.75"
-								width="16.5"
-								height="12.5"
-								rx="2"
-								stroke="currentColor"
-								stroke-width="1.4"
-							></rect>
-							<path
-								d="M4.5 7.25 12 12.25 19.5 7.25"
-								stroke="currentColor"
-								stroke-width="1.4"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							></path>
-						</svg>
-					</span>
 					<span class="contact__info-body">
 						<span class="contact__info-mask" aria-hidden="true">
 							{
-								charsOf(CONTACT_EMAIL).map((char) => (
+								charsOf(emailUser).map((char) => (
+									<span class="contact__info-col">
+										<span class="contact__info-track">
+											<span class="contact__info-char">{char}</span>
+											<span class="contact__info-char">{char}</span>
+										</span>
+									</span>
+								))
+							}
+							{
+								emailHost && (
+									<span class="contact__info-col">
+										<span class="contact__info-track">
+											<span class="contact__info-char contact__info-char--at"></span>
+											<span class="contact__info-char contact__info-char--at"></span>
+										</span>
+									</span>
+								)
+							}
+							{
+								charsOf(emailHost).map((char) => (
 									<span class="contact__info-col">
 										<span class="contact__info-track">
 											<span class="contact__info-char">{char}</span>
@@ -89,10 +94,10 @@ function socialClass(link: any) {
 							<span class="contact__social-viewport">
 								<span class="contact__social-track">
 									<span class={socialClass(link)}>
-										<SocialGlyph id={link.type}/>
+										<SocialGlyph id={link.type} />
 									</span>
 									<span class={socialClass(link)}>
-										<SocialGlyph id={link.type}/>
+										<SocialGlyph id={link.type} />
 									</span>
 								</span>
 							</span>
@@ -109,41 +114,57 @@ function socialClass(link: any) {
 			data-contact-form
 			data-success={CONTACT_FORM_SUCCESS}
 			data-error={CONTACT_FORM_ERROR}
-			data-demo-note={formAction ? '' : "Demo, does not send"}
+			data-demo-note={formAction ? '' : 'Demo, does not send'}
 		>
 			{
 				CONTACT_FORM_HIDDEN.map((field) => (
 					<input type="hidden" name={field.name} value={field.value} />
 				))
-			}
-			<label class="contact__honeypot">
+			}			
+
+			<!-- Client-side honeypot -->
+			<label class="contact__honeypot" aria-hidden="true">
 				<span>Company</span>
 				<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
 			</label>
 
+			<!-- Web3Forms native server-side honeypot -->
+			<input
+				type="checkbox"
+				name="botcheck"
+				class="contact__honeypot"
+				tabindex="-1"
+				autocomplete="off"
+				aria-hidden="true"
+			/>
+
 			{
 				CONTACT_FIELDS.map((field) => (
 					<label class="contact__field" for={field.name}>
-						{field.type == "Ziņas lauks" ? (
-							<span class="contact__label">{field.label}</span>
-							<textarea
-								class="contact__input contact__input--area"
-								id={field.name}
-								name={field.name}
-								rows="5"
-								required
-							></textarea>
+						{field.type == 'Ziņas lauks' ? (
+							<>
+								<span class="contact__label">{field.label}</span>
+								<textarea
+									class="contact__input contact__input--area"
+									id={field.name}
+									name={field.name}
+									rows="5"
+									required
+								/>
+							</>
 						) : (
-							<span class="contact__label">{field.label}</span>
-							<input
-								class="contact__input"
-								id={field.name}
-								name={field.name}
-								type={field.type == "E-pasta lauks" ? "email" : "text"}
-								autocomplete={field.name}
-								required
-							/>
-						)}	
+							<>
+								<span class="contact__label">{field.label}</span>
+								<input
+									class="contact__input"
+									id={field.name}
+									name={field.name}
+									type={field.type == 'E-pasta lauks' ? 'email' : 'text'}
+									autocomplete={field.name}
+									required
+								/>
+							</>
+						)}
 					</label>
 				))
 			}
@@ -168,7 +189,8 @@ function socialClass(link: any) {
 					}
 				</span>
 			</button>
-
+			
+			<div class="h-captcha" data-captcha="true"></div>
 			<p class="contact__status" data-contact-status role="status" aria-live="polite" hidden></p>
 		</form>
 	</div>
@@ -288,6 +310,10 @@ function socialClass(link: any) {
 		overflow: hidden;
 		height: 1.4em;
 		line-height: 1.4;
+	}
+
+	.contact__info-char--at::before {
+		content: '\0040';
 	}
 
 	.contact__info-col {
@@ -532,7 +558,7 @@ function socialClass(link: any) {
 
 	.contact__status {
 		margin: 0.15rem 0 0;
-		color: var(--color-muted);
+		color: var(--color-fg);
 		font-family: var(--font-sans);
 		font-weight: 400;
 		font-size: 0.875rem;
@@ -541,7 +567,7 @@ function socialClass(link: any) {
 	}
 
 	.contact__status.is-error {
-		color: #e8b4b4;
+		color: #be0000;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -659,8 +685,27 @@ function socialClass(link: any) {
 	function initContact() {
 		destroyContact?.();
 
+		const emailLink = document.querySelector<HTMLAnchorElement>('[data-contact-email]');
+		if (emailLink) {
+			const { emailUser, emailHost } = emailLink.dataset;
+			if (emailUser && emailHost) {
+				const address = `${emailUser}@${emailHost}`;
+				const hydrateMailto = () => {
+					if (!emailLink.href.startsWith('mailto:')) {
+						emailLink.href = `mailto:${address}`;
+						emailLink.setAttribute('aria-label', `Email ${address}`);
+					}
+				};
+
+				emailLink.addEventListener('mouseenter', hydrateMailto, { once: true });
+				emailLink.addEventListener('focus', hydrateMailto, { once: true });
+				emailLink.addEventListener('click', hydrateMailto, { once: true });
+			}
+		}
+
 		const form = document.querySelector('[data-contact-form]');
 		const cleanups: Array<() => void> = [];
+		const loadedAt = Date.now();
 
 		if (form instanceof HTMLFormElement) {
 			const status = form.querySelector('[data-contact-status]');
@@ -683,8 +728,12 @@ function socialClass(link: any) {
 					return;
 				}
 
-				const honeypot = form.querySelector<HTMLInputElement>('input[name="_gotcha"]');
-				if (honeypot?.value) {
+				// 1. Check both honeypots + minimum 2s human interaction time
+				const gotcha = form.querySelector<HTMLInputElement>('input[name="_gotcha"]');
+				const botcheck = form.querySelector<HTMLInputElement>('input[name="botcheck"]');
+				const submittedTooFast = Date.now() - loadedAt < 2000;
+
+				if (gotcha?.value || botcheck?.checked || submittedTooFast) {
 					setStatus(status, success, false);
 					form.reset();
 					return;
@@ -695,14 +744,34 @@ function socialClass(link: any) {
 
 				try {
 					if (action) {
+						const hCaptcha = form.querySelector<HTMLInputElement>('textarea[name=h-captcha-response]').value;
+
+						if (!hCaptcha) {
+							event.preventDefault();
+							setStatus(status, 'Lūdzu, apstipriniet, ka neesat robots.', true);
+							return;
+						}
+
+						const formData = new FormData(form);
+
+						// Remove internal-only honeypot so Web3Forms email stays clean
+						formData.delete('_gotcha');
+
+						// Tag which domain sent the message (e.g., .lv vs .gitlab.io / .github.io)
+						if (!formData.has('subject')) {
+							formData.set('subject', `[${window.location.hostname}] Jauna ziņa no mājaslapas`);
+						}
+
 						const response = await fetch(action, {
 							method: 'POST',
-							body: new FormData(form),
+							body: formData,
 							headers: { Accept: 'application/json' },
 						});
 
-						if (!response.ok) {
-							throw new Error('Form endpoint rejected the request');
+						const result = await response.json().catch(() => null);
+
+						if (!response.ok || result?.success === false) {
+							throw new Error(result?.message || 'Form endpoint rejected the request');
 						}
 					}
 

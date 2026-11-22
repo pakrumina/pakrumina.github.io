@@ -49,7 +49,6 @@ export const SOCIAL_LINKS_RIGHT = socialMedia.socialLinksRight;
 
 export const HERO_TRAIL_IMAGES = heroTrail.images as const;
 
-
 export const CONTACT_RING_IMAGES = contactRing.images as const;
 
 
@@ -64,11 +63,13 @@ export const CONTACT_RING_IMAGES = contactRing.images as const;
 
  */
 
-export const CONTACT_FORM_ACTION = '';
+export const CONTACT_FORM_ACTION = 'https://api.web3forms.com/submit';
 
 /** Extra hidden inputs some providers need, e.g. `{ name: 'access_key', value: 'YOUR_KEY' }`. */
 
-export const CONTACT_FORM_HIDDEN: ReadonlyArray<{ name: string; value: string }> = [];
+ export const CONTACT_FORM_HIDDEN = [
+	{ name: 'access_key', value: import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '' },
+];
 
 export const FOOTER_CREDIT = 'Visas tiesības aizsargātas';
 export const FOOTER_META_LINKS = [{ href: '/licenses', label: 'Licences' }] as const;

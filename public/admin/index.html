@@ -42,7 +42,7 @@
             default: "none",
           },
         ],
-        pattern: /^<img src="([^"]*)" alt="([^"]*)"(?: width="([^"]*)")?(?: height="([^"]*)")?(?: class="embedded-image align-([^"]*)")?\s*\/?>$/,
+        pattern: /^<img src="([^"]*)" alt="([^"]*)"(?: width="([^"]*)")?(?: height="([^"]*)")?(?: class="embedded-image(?: align-([^"]*))?")?\s*\/?>$/,
         fromBlock: function (match) {
           return {
             src: match[1],
