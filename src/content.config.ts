@@ -24,17 +24,6 @@ const contactRingCollection = defineCollection({
     }),
 });
 
-const scrollRowCollection = defineCollection({
-    type: 'data',
-    schema: z.object({
-        items: z.array(
-            z.object({
-                image: z.string(),
-            })
-        ),
-    }),
-});
-
 const siteCollection = defineCollection({
   type: 'data',
   schema: z.object({

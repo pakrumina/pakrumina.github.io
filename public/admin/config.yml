@@ -40,15 +40,6 @@ collections:
             widget: "list"
             collapsed: false
             field: { label: "Attēls", name: "image", widget: "image" }
-      - name: "scrollRow"
-        label: "Slīdošā lenta"
-        file: "src/content/images/scrollRow.json"
-        fields:
-          - label: "Slīdošās lentas attēli to parādīšanās secībā"
-            name: "images"
-            widget: "list"
-            collapsed: false
-            field: { label: "Attēls", name: "image", widget: "image" }
   - name: "projects"
     label: "Darbi"
     folder: "src/content/projects"
@@ -310,7 +301,6 @@ collections:
               - { label: "Melnā daļa", name: "lead", widget: "string" }
               - { label: "Pelēkā daļa (var nebūt)", name: "main", widget: "string" }
           - { label: "Mazais teksts", name: "heroDescription", widget: "string" }
-          - { label: "Slīdšās lentas virsraksts", name: "partnersLabel", widget: "string" }
       - name: "socialMedia"
         label: "Sociālie mediji"
         file: "src/content/site/socialMedia.json"

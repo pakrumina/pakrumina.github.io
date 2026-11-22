@@ -9,7 +9,6 @@ import projects from './content/site/projects.json';
 import socialMedia from './content/site/socialMedia.json';
 import heroTrail from './content/images/heroTrail.json';
 import contactRing from './content/images/contactRing.json';
-import scrollRow from './content/images/scrollRow.json';
 
 export const SITE_TITLE = metadata.siteTitle;
 export const SITE_DESCRIPTION = metadata.siteDescription;
@@ -53,8 +52,6 @@ export const HERO_TRAIL_IMAGES = heroTrail.images as const;
 
 export const CONTACT_RING_IMAGES = contactRing.images as const;
 
-
-export const SCROLL_ROW_IMAGES = scrollRow.images as const;
 
 // Hidden fields and licence info stays hardcoded
 /**
