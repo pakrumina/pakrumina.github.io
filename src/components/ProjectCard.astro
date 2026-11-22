@@ -223,7 +223,6 @@ const { title, categories, thumbnail, hoverVideoUrl } = project.data;
 	}
 
 	.works-card__tag {
-		/* REMOVE position: absolute, top, left from here */
 		padding: 0.4rem 0.8rem;
 		border-radius: 999rem;
 		background-color: #0a0a0a;
@@ -330,8 +329,8 @@ const { title, categories, thumbnail, hoverVideoUrl } = project.data;
 	const items = document.querySelectorAll('.works__item');
 
 	items.forEach(item => {
-		const image = document.querySelector('img');
-		item.addEventListener('mouseenter', () => {
+		item.addEventListener('mouseenter', (elem) => {
+			const image = elem.target.querySelector('img');
 			gsap.to(image, { 
 				opacity: 0, 
 				scale: 1, 
@@ -340,7 +339,8 @@ const { title, categories, thumbnail, hoverVideoUrl } = project.data;
 			});
 		});
 
-		item.addEventListener('mouseleave', () => {
+		item.addEventListener('mouseleave', (elem) => {
+			const image = elem.target.querySelector('img');
 			gsap.to(image, { 
 				opacity: 1, 
 				scale: 1, 
