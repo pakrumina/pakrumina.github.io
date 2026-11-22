@@ -94,6 +94,7 @@ const siteCollection = defineCollection({
 const projects = defineCollection({
 	loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
 	schema: z.object({
+    order: z.number(),
 		title: z.string(),
 		description: z.string(),
 		categories: z.array(z.string()),
@@ -109,6 +110,7 @@ const projects = defineCollection({
 const blog = defineCollection({
 	loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
 	schema: z.object({
+    order: z.number(),
 		title: z.string(),
 		description: z.string(),
 		categories: z.array(z.string()),

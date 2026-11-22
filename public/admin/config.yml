@@ -45,10 +45,20 @@ collections:
     folder: "src/content/projects"
     create: true
     slug: "{{slug}}"
+    summary: "[{{fields.order}}] {{fields.title}}"
     identifier_field: "title"
-    sortable_fields: ["datetime", "title"]
-    default_sort: { field: "datetime", dir: "Descending" }
+    sortable_fields:
+      - field: "order"
+        label: "Secība"
+        default_sort: asc
+      - "title"
     fields:
+      - label: "Secība"
+        name: "order"
+        widget: "number"
+        required: true
+        value_type: "int"
+        default: 100
       - { label: "Virsraksts", name: "title", widget: "string", required: true }
       - { label: "Apraksts", name: "description", widget: "string", required: true }
       - label: "Kategorijas"
@@ -118,10 +128,20 @@ collections:
     folder: "src/content/blog"
     create: true
     slug: "{{slug}}"
+    summary: "[{{fields.order}}] {{fields.title}}"
     identifier_field: "title"
-    sortable_fields: ["datetime", "title"]
-    default_sort: { field: "datetime", dir: "Descending" }
+    sortable_fields:
+      - field: "order"
+        label: "Secība"
+        default_sort: asc
+      - "title"
     fields:
+      - label: "Secība"
+        name: "order"
+        widget: "number"
+        required: true
+        value_type: "int"
+        default: 100
       - { label: "Virsraksts", name: "title", widget: "string", required: true }
       - { label: "Apraksts", name: "description", widget: "string", required: true }
       - label: "Kategorijas"

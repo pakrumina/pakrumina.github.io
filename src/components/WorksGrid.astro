@@ -4,7 +4,7 @@ import ProjectCard from '../components/ProjectCard.astro';
 import availableCategoriesJson from '../content/site/categories.json';
 
 const availableCategories = getAvailableCategories();
-const projectList = await getCollection('projects');
+const rawProjects = await getCollection('projects');
 
 function charsOf(label: string) {
 	return [...label].map((char) => (char === ' ' ? '\u00A0' : char));}
@@ -18,6 +18,17 @@ function getAvailableCategories() {
 function isDefaultActive(cat: string) {
 	return cat === 'Visas';
 }
+
+const projectList = rawProjects.sort((a, b) => {
+  const orderA = a.data.order ?? Number.MAX_SAFE_INTEGER;
+  const orderB = b.data.order ?? Number.MAX_SAFE_INTEGER;
+
+  if (orderA !== orderB) {
+    return orderA - orderB;
+  }
+
+  return Number(b.data.year) - Number(a.data.year);
+});
 ---
 <div class="category-filter" data-category-filter>
 	{availableCategories.map((cat) => (

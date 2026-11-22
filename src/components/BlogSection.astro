@@ -24,6 +24,17 @@ function getAvailableCategories() {
 function isDefaultActive(cat: string) {
 	return cat === 'Visas';
 }
+
+const orderedPosts = posts.sort((a, b) => {
+  const orderA = a.data.order ?? Number.MAX_SAFE_INTEGER;
+  const orderB = b.data.order ?? Number.MAX_SAFE_INTEGER;
+
+  if (orderA !== orderB) {
+    return orderA - orderB;
+  }
+
+  return b.data.datetime.getMilliseconds() - a.data.datetime.getMilliseconds();
+});
 ---
 
 <section class="blog" id="blog" aria-label="Blog" data-blog>
@@ -61,7 +72,7 @@ function isDefaultActive(cat: string) {
 		</div>
 		<ul class="blog__grid" data-blog-grid>
 			{
-				posts.map((post) => (
+				orderedPosts.map((post) => (
 					<li class="blog__item" data-categories={post.data.categories}>
 						<BlogCard post={post} />
 					</li>

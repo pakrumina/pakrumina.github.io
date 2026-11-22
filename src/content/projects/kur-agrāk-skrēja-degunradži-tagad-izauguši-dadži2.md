@@ -1,4 +1,5 @@
 ---
+order: 100
 title: Kur agrāk skrēja degunradži, tagad izauguši dadži2
 description: Kur agrāk skrēja degunradži, tagad izauguši dadži2
 categories:
